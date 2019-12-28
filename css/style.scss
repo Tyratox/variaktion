@@ -1,0 +1,423 @@
+@import "fonts";
+@import "input";
+@import "../node_modules/bootstrap/scss/functions";
+@import "../node_modules/bootstrap/scss/variables";
+@import "../node_modules/bootstrap/scss/mixins";
+@import "../node_modules/bootstrap/scss/reboot";
+@import "../node_modules/bootstrap/scss/grid";
+
+$fa-font-path: "../font";
+@import "../node_modules/@fortawesome/fontawesome-free/scss/brands.scss";
+@import "../node_modules/@fortawesome/fontawesome-free/scss/solid.scss";
+@import "../node_modules/@fortawesome/fontawesome-free/scss/fontawesome.scss";
+
+html,
+body {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  margin: 0;
+  padding: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Anton", sans-serif;
+  font-weight: 400;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+a {
+  display: inline-block;
+  color: #000;
+  border-bottom: #000 2px solid;
+}
+
+a:hover {
+  text-decoration: none;
+  color: #000;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+header {
+  display: flex;
+  flex-wrap: wrap;
+  box-shadow: 0 2px 3px 1px rgba(0, 0, 0, 0.1);
+
+  padding: 0 1rem;
+
+  align-items: center;
+  z-index: 100;
+}
+
+.flex-spacer {
+  flex-grow: 1;
+}
+
+.logo {
+  font-size: 3rem;
+  margin-right: 3rem;
+  padding-left: 0.5rem;
+
+  transform: translateY(10%);
+}
+
+.anton {
+  text-transform: uppercase;
+  font-family: "Anton", sans-serif;
+  font-weight: 400;
+}
+
+.variaktion {
+  text-transform: uppercase;
+  font-family: "Anton", sans-serif;
+  font-weight: 400;
+  margin: 0;
+}
+
+.variaktion span {
+  display: inline-block;
+  transform: rotateZ(900deg);
+  transition: all 1s ease-in-out;
+}
+
+.variaktion:hover span {
+  transform: rotateY(0deg);
+}
+
+@keyframes logoV {
+  0% {
+    transform: rotateZ(-20deg);
+  }
+  60% {
+    transform: rotateZ(10deg);
+  }
+  90% {
+    transform: rotateZ(-5deg);
+  }
+  100% {
+    transform: rotateZ(0deg);
+  }
+}
+
+@keyframes logoA {
+  0% {
+    transform: rotateZ(35deg) translate(15%, -25%);
+  }
+  70% {
+    transform: rotateZ(-10deg) translate(0, -0);
+  }
+  100% {
+    transform: rotateZ(0deg) translate(0, -0);
+  }
+}
+
+.logo {
+  font-family: "Anton", sans-serif;
+  font-weight: 400;
+
+  span {
+    display: inline-block;
+    transition: all 0.3s ease-in-out;
+    &:first-child {
+      transform: rotateZ(-20deg);
+    }
+    &:last-child {
+      transform: rotateZ(35deg) translate(15%, -25%);
+    }
+  }
+
+  &:hover span {
+    &:first-child {
+      animation: logoV 1s ease-in-out forwards;
+    }
+    &:nth-child(2) {
+      animation: logoA 1s ease-in-out forwards;
+    }
+  }
+}
+
+$h2-sizes: (
+  sm: 3rem,
+  md: 4rem,
+  lg: 5rem,
+  xl: 5rem
+);
+
+.h2 {
+  font-size: 3rem;
+  text-transform: uppercase;
+
+  @each $breakpoint, $h2-size in $h2-sizes {
+    @include media-breakpoint-up($breakpoint, $grid-breakpoints) {
+      font-size: $h2-size;
+    }
+  }
+}
+
+footer {
+  background-color: #fff;
+  padding: 2rem 0;
+
+  p {
+    margin: 0;
+  }
+}
+
+ul.footer-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  li > a {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+    border-bottom: none;
+
+    i {
+      color: #000;
+      border: #000 2px solid;
+      border-radius: 50%;
+
+      font-size: 1.5rem;
+      width: 3rem;
+      height: 3rem;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      margin-right: 0.5rem;
+
+      transition: all 0.3s ease-in-out;
+    }
+
+    div {
+      display: inline-block;
+    }
+  }
+
+  li > a:hover {
+    i {
+      background-color: #000;
+      color: #fff;
+    }
+    span {
+      text-decoration: underline;
+    }
+  }
+}
+
+$logo-widths: (
+  sm: 5rem,
+  md: 10rem,
+  lg: 10rem,
+  xl: 10rem
+);
+
+.spray {
+  margin-top: 5rem;
+  padding-bottom: 10rem;
+
+  @each $breakpoint, $logo-width in $logo-widths {
+    @include media-breakpoint-up($breakpoint, $grid-breakpoints) {
+      padding-bottom: 4 * $logo-width;
+    }
+  }
+
+  & > div {
+    /*background-color: #000;*/
+    position: absolute;
+    width: 3.5rem;
+    height: 7rem;
+    z-index: -1;
+
+    @each $breakpoint, $logo-width in $logo-widths {
+      @include media-breakpoint-up($breakpoint, $grid-breakpoints) {
+        width: $logo-width;
+        height: 2 * $logo-width;
+      }
+    }
+  }
+
+  .v {
+    right: 50%;
+    clip-path: polygon(
+      24.28930627% 100%,
+      0% 0%,
+      37.26388496% 0%,
+      51.35696191% 68.0232558%,
+      63.8841414% 0%,
+      100% 0%,
+      76.85872028% 100%
+    );
+  }
+
+  .a {
+    left: 50%;
+    clip-path: polygon(
+      0 100%,
+      18.20346296% 0%,
+      82.02524265% 0%,
+      100% 100%,
+      64.26041748% 100%,
+      61.62859137% 84%,
+      38.81943312% 84%,
+      36.62624472% 100%,
+      0 100%,
+      41.67057781% 68.0696158%,
+      58.77744668% 68.0696158%,
+      50.44333101% 17.1965076%,
+      48.68878052% 17.1965076%,
+      41.67057781% 68.0696158%
+    );
+  }
+
+  .dot {
+    position: absolute;
+    border-radius: 50%;
+    background-color: transparent;
+    box-shadow: 0 0 4px 30px #000;
+    width: 1px;
+    height: 1px;
+    background-color: #000;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+
+    &.visible {
+      opacity: 1;
+    }
+  }
+}
+
+.spray-logo > .row > div:last-child {
+  padding: 5rem 1rem 0 5rem;
+}
+
+.lineup {
+  background-color: #4990e2;
+  color: #fff;
+
+  padding-bottom: 5rem;
+
+  .h2 {
+    margin-bottom: 3rem;
+  }
+}
+
+.artists {
+  font-family: "Anton", sans-serif;
+  font-weight: 400;
+
+  & > div {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .tier-1 {
+    font-size: 5rem;
+  }
+  .tier-2 {
+    font-size: 3rem;
+  }
+  .tier-3 {
+    font-size: 2rem;
+  }
+
+  & > div > div:not(:last-child):after {
+    content: "-";
+    margin: 0 0.5rem;
+  }
+}
+
+$h2-positions: (
+  sm: relative,
+  md: relative,
+  lg: absolute,
+  xl: absolute
+);
+
+.map {
+  background-color: #4990e2;
+  h2 {
+    position: relative;
+    @each $breakpoint, $h2-position in $h2-positions {
+      @include media-breakpoint-up($breakpoint, $grid-breakpoints) {
+        position: $h2-position;
+      }
+    }
+    color: #fff;
+  }
+}
+
+.sponsors {
+  margin-top: 1rem;
+
+  .row {
+    margin: 1rem 0;
+    align-items: center;
+  }
+
+  svg,
+  img {
+    width: 100%;
+    height: auto;
+  }
+}
+
+$date-sizes: (
+  sm: 2rem,
+  md: 3rem,
+  lg: 4rem,
+  xl: 5rem
+);
+
+.help {
+  position: relative;
+  background-color: #b8e986;
+  z-index: 0;
+  padding-bottom: 2rem;
+
+  p {
+    font-size: 1.5rem;
+  }
+
+  .container {
+    position: relative;
+    z-index: 1;
+  }
+
+  svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+  }
+
+  .date {
+    margin-bottom: 10rem;
+
+    h2 {
+      font-size: 1.3rem;
+      margin-top: 1.3rem;
+
+      @each $breakpoint, $date-size in $date-sizes {
+        @include media-breakpoint-up($breakpoint, $grid-breakpoints) {
+          font-size: $date-size;
+          margin-top: $date-size;
+        }
+      }
+    }
+  }
+}

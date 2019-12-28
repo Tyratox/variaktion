@@ -1,9 +1,4 @@
-const wait = (time = 0) =>
-  new Promise((resolve, reject) => {
-    setTimeout(resolve, time);
-  });
-
-const spray2 = (
+const spray = (
   selector,
   minRotation = -40,
   maxRotation = 40,
@@ -53,7 +48,7 @@ const spray2 = (
       requestAnimationFrame(() => dot.classList.add("visible"));
       dots.push(dot);
 
-      requestAnimationFrame(() => _spray_dot(dotIndex + 1, cb));
+      requestAnimationFrame(() => _spray_dot(dotIndex + 5, cb));
     };
 
     _spray_dot(0, () =>
@@ -67,43 +62,9 @@ const spray2 = (
   });
 };
 
-const spray = async selector => {
-  const el = document.querySelector(selector);
-  const rows = el.querySelectorAll(".dot-row");
-  const dots = [];
-
-  for (let i = 0; i < rows.length; i++) {
-    const row = rows[i];
-
-    const top = parseFloat(row.getAttribute("data-top"));
-    const leftFrom =
-      parseFloat(row.getAttribute("data-left-from")) - Math.random() * 5;
-    const leftTo =
-      parseFloat(row.getAttribute("data-left-to")) + Math.random() * 5;
-    const diff = leftTo - leftFrom;
-
-    for (let j = 0; j < diff; j++) {
-      const dot = document.createElement("div");
-      dot.classList.add("dot");
-      dot.style.top = top + "%";
-      dot.style.left = leftFrom + j + "%";
-
-      row.appendChild(dot);
-      await wait(1);
-      dot.classList.add("visible");
-      await wait(1);
-
-      dots.push(dot);
-    }
-  }
-
-  el.style.backgroundColor = "#000";
-  dots.forEach(dot => dot.remove());
-};
-
 document.addEventListener("DOMContentLoaded", () =>
   setTimeout(() => {
-    spray2("section.spray div.v", -40, 0, 0.8, -15, 0, -15, 0);
-    spray2("section.spray div.a", 0, 40, 0.8, 0, 15, 0, 15);
+    spray(".spray div.v", -40, 0, 0.8, -15, 0, -15, 0);
+    spray(".spray div.a", 0, 40, 0.8, 0, 15, 0, 15);
   }, 1000)
 );
