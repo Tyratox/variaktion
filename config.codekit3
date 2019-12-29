@@ -63,6 +63,19 @@
 		"plM": 52780316221407,
 		"prP": 0
 		},
+	"/css/_animation.scss": {
+		"aP": 1,
+		"bl": 0,
+		"dP": 10,
+		"dS": 0,
+		"ft": 4,
+		"ma": 1,
+		"oA": 1,
+		"oAP": "/css/_animation.css",
+		"oF": 0,
+		"oS": 3,
+		"uL": 1
+		},
 	"/css/_fonts.scss": {
 		"aP": 1,
 		"bl": 0,
@@ -334,6 +347,30 @@
 		"oAP": "/functions/setup.php",
 		"oF": 0
 		},
+	"/header-front.php": {
+		"cB": 0,
+		"ft": 8192,
+		"hM": 0,
+		"oA": 0,
+		"oAP": "/header-front.php",
+		"oF": 0
+		},
+	"/header-html.php": {
+		"cB": 0,
+		"ft": 8192,
+		"hM": 0,
+		"oA": 0,
+		"oAP": "/header-html.php",
+		"oF": 0
+		},
+	"/header-nav.php": {
+		"cB": 0,
+		"ft": 8192,
+		"hM": 0,
+		"oA": 0,
+		"oAP": "/header-nav.php",
+		"oF": 0
+		},
 	"/header.php": {
 		"cB": 0,
 		"ft": 8192,
@@ -342,11 +379,61 @@
 		"oAP": "/header.php",
 		"oF": 0
 		},
+	"/img/191218_var_entwürfe_02-29.svg": {
+		"ft": 2097152,
+		"miP": 0,
+		"oA": 2,
+		"oAP": "/img/191218_var_entwürfe_02-29.svg",
+		"oF": 0,
+		"opt": 0,
+		"plM": 52780316221407,
+		"prP": 0
+		},
+	"/img/191218_var_entwürfe_02-30.svg": {
+		"ft": 2097152,
+		"miP": 0,
+		"oA": 2,
+		"oAP": "/img/191218_var_entwürfe_02-30.svg",
+		"oF": 0,
+		"opt": 0,
+		"plM": 52780316221407,
+		"prP": 0
+		},
+	"/img/191228_logo_max.svg": {
+		"ft": 2097152,
+		"miP": 0,
+		"oA": 2,
+		"oAP": "/img/191228_logo_max.svg",
+		"oF": 0,
+		"opt": 0,
+		"plM": 52780316221407,
+		"prP": 0
+		},
+	"/img/191228_logo_mini.svg": {
+		"ft": 2097152,
+		"miP": 0,
+		"oA": 2,
+		"oAP": "/img/191228_logo_mini.svg",
+		"oF": 0,
+		"opt": 0,
+		"plM": 52780316221407,
+		"prP": 0
+		},
 	"/img/a.svg": {
 		"ft": 2097152,
 		"miP": 0,
 		"oA": 2,
 		"oAP": "/img/a.svg",
+		"oF": 0,
+		"opt": 0,
+		"plM": 52780316221407,
+		"prP": 0
+		},
+	"/img/grass-end.svg": {
+		"ft": 2097152,
+		"miP": 0,
+		"oA": 2,
+		"oAP": "/img/grass-end.svg",
 		"oF": 0,
 		"opt": 0,
 		"plM": 52780316221407,
@@ -410,35 +497,35 @@
 		"oAP": "/index.php",
 		"oF": 0
 		},
-	"/js/min/spray.min.js": {
+	"/js/flucht.js": {
 		"bF": 6,
 		"ft": 64,
 		"ma": 1,
 		"mi": 1,
 		"oA": 0,
-		"oAP": "/js/min/min/spray.min.min.js",
+		"oAP": "/js/min/flucht.min.js",
 		"oF": 0,
 		"sC": 3,
 		"tS": 1
 		},
-	"/js/min/spray.min.js.map": {
+	"/js/min/flucht.min.js": {
+		"bF": 6,
+		"ft": 64,
+		"ma": 1,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "/js/min/min/flucht.min.min.js",
+		"oF": 0,
+		"sC": 3,
+		"tS": 1
+		},
+	"/js/min/flucht.min.js.map": {
 		"cB": 0,
 		"ft": 8192,
 		"hM": 0,
 		"oA": 0,
-		"oAP": "/js/min/spray.min.js.map",
+		"oAP": "/js/min/flucht.min.js.map",
 		"oF": 0
-		},
-	"/js/spray.js": {
-		"bF": 6,
-		"ft": 64,
-		"ma": 1,
-		"mi": 1,
-		"oA": 0,
-		"oAP": "/js/min/spray.min.js",
-		"oF": 0,
-		"sC": 3,
-		"tS": 1
 		},
 	"/node_modules": {
 		"ft": 65536,
@@ -640,6 +727,17 @@
 		"oF": 0,
 		"oS": 3,
 		"uL": 1
+		},
+	"/node_modules/animejs/lib/anime.es.js": {
+		"bF": 6,
+		"ft": 64,
+		"ma": 1,
+		"mi": 1,
+		"oA": 1,
+		"oAP": "/node_modules/animejs/lib/min/anime.es.min.js",
+		"oF": 0,
+		"sC": 3,
+		"tS": 1
 		},
 	"/node_modules/bootstrap/scss/_functions.scss": {
 		"aP": 1,
@@ -2635,7 +2733,7 @@
 			"optionString": "'never', {'exceptRange': false, 'onlyEquality': false}"
 			}
 		},
-	"esLintSourceType": 0,
+	"esLintSourceType": 1,
 	"externalServerAddress": "http://localhost:8888",
 	"gitIgnoreBuildFolder": 1,
 	"hideConfigFile": 0,

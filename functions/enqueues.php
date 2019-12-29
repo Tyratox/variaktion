@@ -10,8 +10,8 @@ class VA_Enqueues
 
 	public function enqueue_scripts()
 	{
-		wp_register_script('spray', get_template_directory_uri() . '/js/min/spray.min.js', array());
-		wp_enqueue_script('spray');
+		wp_register_script('flucht', get_template_directory_uri() . '/js/min/flucht.min.js', array());
+		wp_enqueue_script('flucht');
 	}
 	public function enqueue_styles()
 	{

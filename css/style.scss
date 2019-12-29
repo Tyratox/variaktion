@@ -1,3 +1,4 @@
+@import "animation";
 @import "fonts";
 @import "input";
 @import "../node_modules/bootstrap/scss/functions";
@@ -26,21 +27,20 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "Anton", sans-serif;
-  font-weight: 400;
+  @extend .anton;
   margin: 0;
-  text-transform: uppercase;
 }
 
 a {
   display: inline-block;
   color: #000;
-  border-bottom: #000 2px solid;
+  border-bottom: #000 3px solid;
 }
 
 a:hover {
   text-decoration: none;
   color: #000;
+  @extend .pulse;
 }
 
 * {
@@ -48,38 +48,74 @@ a:hover {
 }
 
 header {
-  display: flex;
-  flex-wrap: wrap;
-  box-shadow: 0 2px 3px 1px rgba(0, 0, 0, 0.1);
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin-top: 2rem;
+  height: 6rem;
 
-  padding: 0 1rem;
+  .container {
+    height: 100%;
+  }
 
-  align-items: center;
-  z-index: 100;
+  .row {
+    align-items: center;
+    height: 100%;
+
+    & > div {
+      height: 100%;
+    }
+
+    svg {
+      max-width: 100%;
+      height: 100%;
+      width: auto;
+    }
+  }
+}
+
+nav {
+  @extend .anton;
+
+  font-size: 2rem;
+  background-color: #fff;
+
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+
+  padding: 0.5rem 0;
+  border-top: #000 3px solid;
+  border-bottom: #000 3px solid;
+
+  z-index: 999999;
+
+  .nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+
+    div {
+      padding: 0 0.5rem;
+    }
+  }
 }
 
 .flex-spacer {
   flex-grow: 1;
 }
 
-.logo {
-  font-size: 3rem;
-  margin-right: 3rem;
-  padding-left: 0.5rem;
-
-  transform: translateY(10%);
-}
-
 .anton {
   text-transform: uppercase;
   font-family: "Anton", sans-serif;
   font-weight: 400;
+  letter-spacing: 0.04rem;
 }
 
 .variaktion {
-  text-transform: uppercase;
-  font-family: "Anton", sans-serif;
-  font-weight: 400;
+  @extend .anton;
   margin: 0;
 }
 
@@ -91,58 +127,6 @@ header {
 
 .variaktion:hover span {
   transform: rotateY(0deg);
-}
-
-@keyframes logoV {
-  0% {
-    transform: rotateZ(-20deg);
-  }
-  60% {
-    transform: rotateZ(10deg);
-  }
-  90% {
-    transform: rotateZ(-5deg);
-  }
-  100% {
-    transform: rotateZ(0deg);
-  }
-}
-
-@keyframes logoA {
-  0% {
-    transform: rotateZ(35deg) translate(15%, -25%);
-  }
-  70% {
-    transform: rotateZ(-10deg) translate(0, -0);
-  }
-  100% {
-    transform: rotateZ(0deg) translate(0, -0);
-  }
-}
-
-.logo {
-  font-family: "Anton", sans-serif;
-  font-weight: 400;
-
-  span {
-    display: inline-block;
-    transition: all 0.3s ease-in-out;
-    &:first-child {
-      transform: rotateZ(-20deg);
-    }
-    &:last-child {
-      transform: rotateZ(35deg) translate(15%, -25%);
-    }
-  }
-
-  &:hover span {
-    &:first-child {
-      animation: logoV 1s ease-in-out forwards;
-    }
-    &:nth-child(2) {
-      animation: logoA 1s ease-in-out forwards;
-    }
-  }
 }
 
 $h2-sizes: (
@@ -163,12 +147,26 @@ $h2-sizes: (
   }
 }
 
+.h2-white {
+  @extend .h2, .text-3d-white;
+}
+
+.h2-dark {
+  @extend .h2, .text-3d-dark;
+}
+
 footer {
+  border-top: #000 3px solid;
   background-color: #fff;
   padding: 2rem 0;
 
   p {
     margin: 0;
+  }
+
+  .logo svg {
+    width: 70%;
+    height: auto;
   }
 }
 
@@ -217,90 +215,62 @@ ul.footer-list {
   }
 }
 
-$logo-widths: (
-  sm: 5rem,
-  md: 10rem,
-  lg: 10rem,
-  xl: 10rem
+$logo-heights: (
+  sm: 20rem,
+  md: 30rem,
+  lg: 40rem,
+  xl: 50rem
 );
 
-.spray {
-  margin-top: 5rem;
-  padding-bottom: 10rem;
+.spray-logo {
+  position: relative;
 
-  @each $breakpoint, $logo-width in $logo-widths {
-    @include media-breakpoint-up($breakpoint, $grid-breakpoints) {
-      padding-bottom: 4 * $logo-width;
-    }
-  }
+  overflow: hidden;
+  height: calc(100vh - 4.375rem);
 
-  & > div {
-    /*background-color: #000;*/
+  svg {
     position: absolute;
-    width: 3.5rem;
-    height: 7rem;
-    z-index: -1;
-
-    @each $breakpoint, $logo-width in $logo-widths {
-      @include media-breakpoint-up($breakpoint, $grid-breakpoints) {
-        width: $logo-width;
-        height: 2 * $logo-width;
-      }
-    }
-  }
-
-  .v {
-    right: 50%;
-    clip-path: polygon(
-      24.28930627% 100%,
-      0% 0%,
-      37.26388496% 0%,
-      51.35696191% 68.0232558%,
-      63.8841414% 0%,
-      100% 0%,
-      76.85872028% 100%
-    );
-  }
-
-  .a {
+    top: 50%;
     left: 50%;
-    clip-path: polygon(
-      0 100%,
-      18.20346296% 0%,
-      82.02524265% 0%,
-      100% 100%,
-      64.26041748% 100%,
-      61.62859137% 84%,
-      38.81943312% 84%,
-      36.62624472% 100%,
-      0 100%,
-      41.67057781% 68.0696158%,
-      58.77744668% 68.0696158%,
-      50.44333101% 17.1965076%,
-      48.68878052% 17.1965076%,
-      41.67057781% 68.0696158%
-    );
-  }
+    transform: translate(-50%, -40%);
+    overflow: visible;
 
-  .dot {
-    position: absolute;
-    border-radius: 50%;
-    background-color: transparent;
-    box-shadow: 0 0 4px 30px #000;
-    width: 1px;
-    height: 1px;
-    background-color: #000;
-    opacity: 0;
-    transition: opacity 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
 
-    &.visible {
-      opacity: 1;
-    }
+    height: 50vh;
+    width: auto;
   }
 }
 
-.spray-logo > .row > div:last-child {
-  padding: 5rem 1rem 0 5rem;
+.clip-v {
+  clip-path: polygon(
+    24.28930627% 100%,
+    0% 0%,
+    37.26388496% 0%,
+    51.35696191% 68.0232558%,
+    63.8841414% 0%,
+    100% 0%,
+    76.85872028% 100%
+  );
+}
+
+.clip-a {
+  clip-path: polygon(
+    0 100%,
+    18.20346296% 0%,
+    82.02524265% 0%,
+    100% 100%,
+    64.26041748% 100%,
+    61.62859137% 84%,
+    38.81943312% 84%,
+    36.62624472% 100%,
+    0 100%,
+    41.67057781% 68.0696158%,
+    58.77744668% 68.0696158%,
+    50.44333101% 17.1965076%,
+    48.68878052% 17.1965076%,
+    41.67057781% 68.0696158%
+  );
 }
 
 .lineup {
@@ -315,8 +285,7 @@ $logo-widths: (
 }
 
 .artists {
-  font-family: "Anton", sans-serif;
-  font-weight: 400;
+  @extend .anton;
 
   & > div {
     display: flex;
@@ -335,7 +304,16 @@ $logo-widths: (
     font-size: 2rem;
   }
 
-  & > div > div:not(:last-child):after {
+  a {
+    display: inline-block;
+    color: #fff;
+
+    border-bottom: none;
+
+    @extend .text-3d-white;
+  }
+
+  & > div > a:not(:last-child):after {
     content: "-";
     margin: 0 0.5rem;
   }
@@ -350,19 +328,22 @@ $h2-positions: (
 
 .map {
   background-color: #4990e2;
-  h2 {
+
+  .title {
     position: relative;
+    color: #fff;
+
     @each $breakpoint, $h2-position in $h2-positions {
       @include media-breakpoint-up($breakpoint, $grid-breakpoints) {
         position: $h2-position;
       }
     }
-    color: #fff;
   }
 }
 
 .sponsors {
   margin-top: 1rem;
+  font-size: 1.5rem;
 
   .row {
     margin: 1rem 0;

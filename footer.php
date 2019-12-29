@@ -3,11 +3,8 @@
 <footer>
     <div class="container">
         <div class="row">
-            <div class="col-12 col-md-4">
-                <span class="logo"><span>V</span><span>A</span></span>
-                <h1 class="variaktion">
-                    Va<span>r</span>iaktion
-                </h1>
+            <div class="col-12 col-md-4 logo">
+                <?php echo file_get_contents(locate_template("img/191228_logo_max.svg")); ?>
             </div>
             <div class="col-12 col-md-4">
                 <ul class="footer-list">
