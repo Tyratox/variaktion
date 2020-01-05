@@ -25,11 +25,31 @@
 		"oAP": "/.gitignore",
 		"oF": 0
 		},
+	"/assets/grass-end.svg": {
+		"ft": 2097152,
+		"miP": 0,
+		"oA": 2,
+		"oAP": "/assets/grass-end.svg",
+		"oF": 0,
+		"opt": 0,
+		"plM": 52780316221407,
+		"prP": 0
+		},
 	"/assets/green-stuff.svg": {
 		"ft": 2097152,
 		"miP": 0,
 		"oA": 2,
 		"oAP": "/assets/green-stuff.svg",
+		"oF": 0,
+		"opt": 0,
+		"plM": 52780316221407,
+		"prP": 0
+		},
+	"/assets/info end.svg": {
+		"ft": 2097152,
+		"miP": 0,
+		"oA": 2,
+		"oAP": "/assets/info end.svg",
 		"oF": 0,
 		"opt": 0,
 		"plM": 52780316221407,
@@ -331,6 +351,14 @@
 		"oAP": "/functions.php",
 		"oF": 0
 		},
+	"/functions/ajax.php": {
+		"cB": 0,
+		"ft": 8192,
+		"hM": 0,
+		"oA": 0,
+		"oAP": "/functions/ajax.php",
+		"oF": 0
+		},
 	"/functions/enqueues.php": {
 		"cB": 0,
 		"ft": 8192,
@@ -378,6 +406,16 @@
 		"oA": 0,
 		"oAP": "/header.php",
 		"oF": 0
+		},
+	"/img/191218_var_entwürfe_02-29-inverted.svg": {
+		"ft": 2097152,
+		"miP": 0,
+		"oA": 2,
+		"oAP": "/img/191218_var_entwürfe_02-29-inverted.svg",
+		"oF": 0,
+		"opt": 0,
+		"plM": 52780316221407,
+		"prP": 0
 		},
 	"/img/191218_var_entwürfe_02-29.svg": {
 		"ft": 2097152,
@@ -444,6 +482,16 @@
 		"miP": 0,
 		"oA": 2,
 		"oAP": "/img/green-stuff.svg",
+		"oF": 0,
+		"opt": 0,
+		"plM": 52780316221407,
+		"prP": 0
+		},
+	"/img/info-end.svg": {
+		"ft": 2097152,
+		"miP": 0,
+		"oA": 2,
+		"oAP": "/img/info-end.svg",
 		"oF": 0,
 		"opt": 0,
 		"plM": 52780316221407,
@@ -526,6 +574,44 @@
 		"oA": 0,
 		"oAP": "/js/min/flucht.min.js.map",
 		"oF": 0
+		},
+	"/js/min/particles.min.js": {
+		"bF": 6,
+		"ft": 64,
+		"ma": 1,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "/js/min/min/particles.min.min.js",
+		"oF": 0,
+		"sC": 3,
+		"tS": 1
+		},
+	"/js/min/particles.min.js.map": {
+		"cB": 0,
+		"ft": 8192,
+		"hM": 0,
+		"oA": 0,
+		"oAP": "/js/min/particles.min.js.map",
+		"oF": 0
+		},
+	"/js/particles.js": {
+		"bF": 6,
+		"ft": 64,
+		"ma": 1,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "/js/min/particles.min.js",
+		"oF": 0,
+		"sC": 3,
+		"tS": 1
+		},
+	"/js/particles.json": {
+		"ft": 524288,
+		"oA": 1,
+		"oAP": "/js/particles-min.json",
+		"oF": 0,
+		"oO": 0,
+		"oS": 1
 		},
 	"/node_modules": {
 		"ft": 65536,

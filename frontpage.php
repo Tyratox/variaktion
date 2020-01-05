@@ -5,18 +5,21 @@
  */
 
 get_header("front"); ?>
-<section class="spray-logo">
-    <?php
-    echo file_get_contents(locate_template("img/191228_logo_mini.svg"));
-    ?>
+<section id="particles">
+    <div class="container">
+        <div class="spray-logo">
+            <?php
+            echo file_get_contents(locate_template("img/191228_logo_mini.svg"));
+            ?>
+        </div>
+    </div>
 </section>
 
 <?php get_header("nav"); ?>
 
-<?php echo file_get_contents(locate_template("img/water-entry.svg")); ?>
-<section id="lineup" class="lineup">
+<?php /*<section id="lineup" class="lineup">
     <div class="container">
-        <h2 class="h2-white">Lineup</h2>
+        <h2 class="h2">Lineup</h2>
         <div class="artists">
             <?php
 
@@ -60,67 +63,118 @@ get_header("front"); ?>
 
         </div>
     </div>
-</section>
+</section>*/ ?>
 
 <section class="map">
     <div class="container">
         <div class="title">
-            <h2 class="h2-white">Location</h2>
+            <h2 class="h2">Location</h2>
         </div>
     </div>
     <?php echo file_get_contents(locate_template("img/map.svg")); ?>
 </section>
 
 <section id="help" class="help">
-    <?php echo file_get_contents(locate_template("img/green-stuff.svg")); ?>
     <div class="container">
-        <div class="date row">
-            <div class="col-6"></div>
-            <div class="col-6">
-                <h2 class="h2">19.–21. Juni 2020</h2>
-            </div>
-        </div>
-        <h2 class="h2-white">Helfer gesucht</h2>
+        <h2 class="h2">Helfer gesucht</h2>
         <div class="row">
             <div class="col-12 col-md-6">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae voluptate ipsam, ea a omnis beatae explicabo tempore eveniet vero amet aliquid non blanditiis possimus veniam, nam consequuntur placeat, eos earum!</p>
+                <p><?php echo get_field("helper-text"); ?></p>
             </div>
             <div class="col-12 col-md-6">
-                <form action="/wp-admin/admin-ajax.php?action_name=xxx">
-                    <div class="row">
-                        <div class="col-12 col-lg-6">
-                            <div class="input">
-                                <input placeholder="Vorname" name="first-name">
-                            </div>
-                        </div>
-                        <div class="col-12 col-lg-6">
-                            <div class="input">
-                                <input placeholder="Nachname" name="last-name">
-                            </div>
-                        </div>
-                        <div class="col-12">
-                            <div class="input">
-                                <textarea placeholder="Be was wettsch eus helfe?"></textarea>
-                            </div>
-                        </div>
-                        <div class="col-12 col-lg-6">
-                            <div class="input">
-                                <input type="submit" value="Absenden">
-                            </div>
-                        </div>
-                    </div>
-                </form>
+                <?php if (!is_user_logged_in()) {
+                    comment_form(
+                        array(
+                            'class_form' => 'class_form row',
+                            'fields' => array(
+                                'author' => '<div class="col-12 col-lg-6">' .
+                                    '<div class="input">' .
+                                    '<input placeholder="Name" name="author">' .
+                                    '</div>' .
+                                    '</div>',
+                                'email' => '<div class="col-12 col-lg-6">' .
+                                    '<div class="input">' .
+                                    '<input placeholder="E-Mail" name="email" type="email">' .
+                                    '</div>' .
+                                    '</div>',
+                            ),
+                            'comment_field' => '<div class="col-12">' .
+                                '<div class="input">' .
+                                '<input placeholder="Spezifische Interessen? (optional)" name="comment">' .
+                                '</div>' .
+                                '</div>',
+                            'must_log_in' => '',
+                            'logged_in_as' => '',
+                            'cancel_reply_before' => '',
+                            'cancel_reply_after' => '',
+                            'cancel_reply_link' => ' ',
+                            'comment_notes_before' => '',
+                            'comment_notes_after' => '',
+                            'title_reply' => '',
+                            'title_reply_before' => '',
+                            'title_reply_after' => '',
+                            'submit_field' => '%1$s <div class="hidden">%2$s</div>',
+                            'submit_button' => '<div class="col-12 col-lg-6">' .
+                                '<div class="input">' .
+                                '<input type="submit" value="Absenden">' .
+                                '</div>' .
+                                '</div>',
+                            'format' => 'xhtml'
+                        )
+                    );
+                } ?>
             </div>
         </div>
     </div>
 </section>
 <?php echo file_get_contents(locate_template("img/grass-end.svg")); ?>
+
+<section id="info" class="info">
+    <div class="container">
+        <h2 class="h2">Info</h2>
+        <div class="row">
+            <div class="col-12 col-md-6">
+                <p><?php echo get_field("info-text"); ?></p>
+            </div>
+            <div class="col-12 col-md-6">
+                <?php echo file_get_contents(locate_template("img/logo.svg")); ?>
+            </div>
+        </div>
+    </div>
+</section>
+
+<?php echo file_get_contents(locate_template("img/info-end.svg")); ?>
+
+<section id="support" class="support">
+    <div class="container">
+        <h2 class="h2">Unterstützen</h2>
+        <div class="row">
+            <div class="col-12 col-md-6">
+                <p><?php echo get_field("support-text"); ?></p>
+            </div>
+            <div class="col-12 col-md-6">
+                <div class="address">
+                    <p>
+                        IBAN: CH94 0900 0000 1536 0
+                    </p>
+                    <p>Verein Jugendfestival</p>
+                    <p>Variaktion</p>
+                    <p>c/o Jugendarbeit Aarau</p>
+                    <p>Poststrasse 17</p>
+                    <p>5000 Aarau</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 <section class="sponsors">
     <?php
 
     echo "<div class='container'>";
 
     echo '<h2 class="h2">Sponsoren</h2>';
+
+    $x = get_field("sponsor-text");
 
     function sponsorsByCategory($slug)
     {
@@ -154,21 +208,22 @@ get_header("front"); ?>
     ));
 
     echo "<div class='row'>";
-    echo "<div class='col-12 col-md-6'>";
+    echo "<div class='col-12'>";
 
+    echo "<div class='logos'>";
     foreach ($slugs as $slug => $v) {
-        echo "<div class='row tier-" . $v['tier'] . "'>";
+        //echo "<div class='row tier-" . $v['tier'] . "'>";
         foreach (sponsorsByCategory($slug) as $post) {
-            echo "<div class='" . $v['col'] . "'>" . get_the_post_thumbnail($post) . "</div>";
+            echo "<div class=tier-'" . $v['tier'] /*$v['col']*/ . "'>" . get_the_post_thumbnail($post) . "</div>";
         }
-        echo "</div>";
+        //echo "</div>";
     }
 
     echo "</div>";
+    echo "</div>";
 
-    echo "<div class='col-12 col-md-6'>";
-    echo "<p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Consequuntur voluptates eos, ab repellendus voluptatum nam laudantium ex suscipit quas accusantium, atque facere minus fugit iure soluta repellat. Earum, vitae quo?</p>";
-    echo '<a href="/sponsor-werden">Auch Sponsor werden?</a>';
+    echo "<div class='col-12'>";
+    echo $x;
     echo "</div>";
 
     echo "</div>"; //row

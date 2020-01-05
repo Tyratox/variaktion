@@ -3,7 +3,7 @@ div.input {
 
   input,
   textarea {
-    font-family: "Anton", sans-serif;
+    font-family: "Roboto", sans-serif;
     font-size: 2rem;
 
     width: 100%;
@@ -14,13 +14,21 @@ div.input {
 
     transition: all 0.3s ease-in-out;
 
-    &:not(:placeholder-shown),
+    border-bottom: #000 2px solid;
+
     &:focus {
-      border-bottom: #000 2px solid;
+      outline: none;
+      animation: pulse 2s ease-in-out 0s 1;
     }
   }
 
+  input::placeholder,
+  textarea::placeholder {
+    color: rgba(0, 0, 0, 0.75);
+  }
+
   input[type="submit"] {
+    margin-top: 1rem;
     background-color: transparent;
     border: #000 2px solid;
     color: #000;

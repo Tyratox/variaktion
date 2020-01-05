@@ -47,6 +47,10 @@ a:hover {
   box-sizing: border-box;
 }
 
+p {
+  font-size: 1.5rem;
+}
+
 header {
   position: absolute;
   left: 0;
@@ -97,6 +101,10 @@ nav {
     justify-content: space-between;
     align-items: center;
 
+    a {
+      border: none;
+    }
+
     div {
       padding: 0 0.5rem;
     }
@@ -137,8 +145,9 @@ $h2-sizes: (
 );
 
 .h2 {
-  font-size: 3rem;
+  font-size: 2.5rem;
   text-transform: uppercase;
+  margin-bottom: 2rem;
 
   @each $breakpoint, $h2-size in $h2-sizes {
     @include media-breakpoint-up($breakpoint, $grid-breakpoints) {
@@ -147,12 +156,8 @@ $h2-sizes: (
   }
 }
 
-.h2-white {
-  @extend .h2, .text-3d-white;
-}
-
-.h2-dark {
-  @extend .h2, .text-3d-dark;
+.address p {
+  margin: 0;
 }
 
 footer {
@@ -162,6 +167,7 @@ footer {
 
   p {
     margin: 0;
+    font-size: 1rem;
   }
 
   .logo svg {
@@ -274,14 +280,11 @@ $logo-heights: (
 }
 
 .lineup {
-  background-color: #4990e2;
+  background-color: #1c258d;
   color: #fff;
 
+  padding-top: 3rem;
   padding-bottom: 5rem;
-
-  .h2 {
-    margin-bottom: 3rem;
-  }
 }
 
 .artists {
@@ -327,9 +330,11 @@ $h2-positions: (
 );
 
 .map {
-  background-color: #4990e2;
+  padding-top: 6rem;
+  background-color: #1c258d;
 
   .title {
+    padding-top: 3rem;
     position: relative;
     color: #fff;
 
@@ -341,19 +346,62 @@ $h2-positions: (
   }
 }
 
+.info {
+  color: #fff;
+  background-color: #dd1e1c;
+
+  p {
+    margin-bottom: 0;
+    padding-bottom: 2rem;
+  }
+}
+
+.particles-js-canvas-el {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  z-index: -1;
+}
+
 .sponsors {
-  margin-top: 1rem;
+  margin-top: 10rem;
+  margin-bottom: 5rem;
   font-size: 1.5rem;
 
   .row {
-    margin: 1rem 0;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
     align-items: center;
+  }
+
+  .logos {
+    display: flex;
+    flex-wrap: wrap;
+
+    justify-content: space-between;
+    margin-bottom: 2rem;
+
+    div {
+      height: 9rem;
+      padding: 2rem 2rem;
+
+      &:first-child {
+        padding-left: 0;
+      }
+
+      &::last-child {
+        padding-right: 0;
+      }
+    }
   }
 
   svg,
   img {
-    width: 100%;
-    height: auto;
+    width: auto;
+    height: 100%;
   }
 }
 
@@ -366,13 +414,10 @@ $date-sizes: (
 
 .help {
   position: relative;
-  background-color: #b8e986;
+  background-color: #e5b123;
   z-index: 0;
+  padding-top: 4rem;
   padding-bottom: 2rem;
-
-  p {
-    font-size: 1.5rem;
-  }
 
   .container {
     position: relative;

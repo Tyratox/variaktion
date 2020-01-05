@@ -3,9 +3,9 @@
 <nav>
     <div class="container">
         <div class="nav">
-            <div><a href="/sponsors">Unterstützen</a></div>
+            <div><a href="/#support">Unterstützen</a></div>
             <div><a href="/#help">Helfer*in</a></div>
-            <div><a href="/#lineup">Info</a></div>
+            <div><a href="/#info">Info</a></div>
         </div>
     </div>
 </nav>
