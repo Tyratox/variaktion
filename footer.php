@@ -21,7 +21,7 @@
                 <h2>Spenden</h2>
                 <div class="address">
                     <p>
-                        IBAN: CH94 0900 0000 1536 0
+                        IBAN: CH94 0900 0000 1536 6372 0
                     </p>
                     <p>Verein Jugendfestival</p>
                     <p>Variaktion</p>

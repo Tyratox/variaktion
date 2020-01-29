@@ -82,47 +82,49 @@ get_header("front"); ?>
                 <p><?php echo get_field("helper-text"); ?></p>
             </div>
             <div class="col-12 col-md-6">
-                <?php if (!is_user_logged_in()) {
-                    comment_form(
-                        array(
-                            'class_form' => 'class_form row',
-                            'fields' => array(
-                                'author' => '<div class="col-12 col-lg-6">' .
-                                    '<div class="input">' .
-                                    '<input placeholder="Name" name="author">' .
-                                    '</div>' .
-                                    '</div>',
-                                'email' => '<div class="col-12 col-lg-6">' .
-                                    '<div class="input">' .
-                                    '<input placeholder="E-Mail" name="email" type="email">' .
-                                    '</div>' .
-                                    '</div>',
-                            ),
-                            'comment_field' => '<div class="col-12">' .
+                <?php
+                if (is_user_logged_in()) {
+                    echo "<p>Wöll du agmeldet besch zeigts do kes namen und email feld a.</p>";
+                }
+                comment_form(
+                    array(
+                        'class_form' => 'class_form row',
+                        'fields' => array(
+                            'author' => '<div class="col-12 col-lg-6">' .
                                 '<div class="input">' .
-                                '<input placeholder="Spezifische Interessen? (optional)" name="comment">' .
+                                '<input placeholder="Name" name="author">' .
                                 '</div>' .
                                 '</div>',
-                            'must_log_in' => '',
-                            'logged_in_as' => '',
-                            'cancel_reply_before' => '',
-                            'cancel_reply_after' => '',
-                            'cancel_reply_link' => ' ',
-                            'comment_notes_before' => '',
-                            'comment_notes_after' => '',
-                            'title_reply' => '',
-                            'title_reply_before' => '',
-                            'title_reply_after' => '',
-                            'submit_field' => '%1$s <div class="hidden">%2$s</div>',
-                            'submit_button' => '<div class="col-12 col-lg-6">' .
+                            'email' => '<div class="col-12 col-lg-6">' .
                                 '<div class="input">' .
-                                '<input type="submit" value="Absenden">' .
+                                '<input placeholder="E-Mail" name="email" type="email">' .
                                 '</div>' .
                                 '</div>',
-                            'format' => 'xhtml'
-                        )
-                    );
-                } ?>
+                        ),
+                        'comment_field' => '<div class="col-12">' .
+                            '<div class="input">' .
+                            '<input placeholder="Spezifische Interessen? (optional)" name="comment">' .
+                            '</div>' .
+                            '</div>',
+                        'must_log_in' => '',
+                        'logged_in_as' => '',
+                        'cancel_reply_before' => '',
+                        'cancel_reply_after' => '',
+                        'cancel_reply_link' => ' ',
+                        'comment_notes_before' => '',
+                        'comment_notes_after' => '',
+                        'title_reply' => '',
+                        'title_reply_before' => '',
+                        'title_reply_after' => '',
+                        'submit_field' => '%1$s <div class="hidden">%2$s</div>',
+                        'submit_button' => '<div class="col-12 col-lg-6">' .
+                            '<div class="input">' .
+                            '<input type="submit" value="Absenden">' .
+                            '</div>' .
+                            '</div>',
+                        'format' => 'xhtml'
+                    )
+                ); ?>
             </div>
         </div>
     </div>
@@ -155,7 +157,7 @@ get_header("front"); ?>
             <div class="col-12 col-md-6">
                 <div class="address">
                     <p>
-                        IBAN: CH94 0900 0000 1536 0
+                        IBAN: CH94 0900 0000 1536 6372 0
                     </p>
                     <p>Verein Jugendfestival</p>
                     <p>Variaktion</p>
