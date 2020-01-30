@@ -203,6 +203,9 @@ footer {
   hr {
     border: none;
     border-bottom: #000 2px solid;
+  }
+
+  .d-sm-none {
     @each $breakpoint, $hr-display in $hr-displays {
       @include media-breakpoint-up($breakpoint, $grid-breakpoints) {
         display: $hr-display;
