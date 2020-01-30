@@ -73,7 +73,7 @@ get_header("front"); ?>
     </div>
     <?php echo file_get_contents(locate_template("img/map.svg")); ?>
 </section>
-
+<section class="help-spacer"></section>
 <section id="help" class="help">
     <div class="container">
         <h2 class="h2">Helfer gesucht</h2>

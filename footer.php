@@ -6,16 +6,30 @@
             <div class="col-12 col-md-4 logo">
                 <?php echo file_get_contents(locate_template("img/191228_logo_max.svg")); ?>
             </div>
+            <div class="col-12 d-sm-none">
+                <hr />
+            </div>
             <div class="col-12 col-md-4">
                 <ul class="footer-list">
-                    <li><a href="https://instagram.com/variaktion" target="_blank"><i class="fab fa-instagram"></i>
+                    <li>
+                        <a href="https://instagram.com/variaktion" target="_blank"><i class="fab fa-instagram"></i>
                             <div><span>Instagram</span></div>
-                        </a></li>
-                    <li><a href="https://facebook.com/variaktion" target="_blank"><i class="fab fa-facebook-f"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://facebook.com/variaktion" target="_blank"><i class="fab fa-facebook-f"></i>
                             <div><span>Facebook</span></div>
-                        </a></li>
-
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/info" target="_blank"><i class="fa fa-info"></i>
+                            <div><span>Infos und Impressum</span></div>
+                        </a>
+                    </li>
                 </ul>
+            </div>
+            <div class="col-12 d-sm-none">
+                <hr />
             </div>
             <div class="col-12 col-md-4">
                 <h2>Spenden</h2>

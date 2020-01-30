@@ -12,6 +12,9 @@ class VA_Enqueues
 	{
 		wp_register_script('flucht', get_template_directory_uri() . '/js/min/flucht.min.js', array());
 		wp_enqueue_script('flucht');
+
+		wp_register_script('smooth-scroll', get_template_directory_uri() . '/js/min/smooth-scroll.min.js', array());
+		wp_enqueue_script('smooth-scroll');
 		// wp_register_script('particles-js', get_template_directory_uri() . '/node_modules/particles.js/particles.js', array());
 		// wp_enqueue_script('particles-js');
 		// wp_register_script('particles', get_template_directory_uri() . '/js/min/particles.min.js', array('particles-js'));

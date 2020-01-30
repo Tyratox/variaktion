@@ -594,6 +594,25 @@
 		"oAP": "/js/min/particles.min.js.map",
 		"oF": 0
 		},
+	"/js/min/smooth-scroll.min.js": {
+		"bF": 6,
+		"ft": 64,
+		"ma": 1,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "/js/min/min/smooth-scroll.min.min.js",
+		"oF": 0,
+		"sC": 3,
+		"tS": 1
+		},
+	"/js/min/smooth-scroll.min.js.map": {
+		"cB": 0,
+		"ft": 8192,
+		"hM": 0,
+		"oA": 0,
+		"oAP": "/js/min/smooth-scroll.min.js.map",
+		"oF": 0
+		},
 	"/js/particles.js": {
 		"bF": 6,
 		"ft": 64,
@@ -612,6 +631,17 @@
 		"oF": 0,
 		"oO": 0,
 		"oS": 1
+		},
+	"/js/smooth-scroll.js": {
+		"bF": 6,
+		"ft": 64,
+		"ma": 1,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "/js/min/smooth-scroll.min.js",
+		"oF": 0,
+		"sC": 3,
+		"tS": 1
 		},
 	"/node_modules": {
 		"ft": 65536,
@@ -1313,6 +1343,14 @@
 		"oF": 0,
 		"oO": 0,
 		"oS": 1
+		},
+	"/page.php": {
+		"cB": 0,
+		"ft": 8192,
+		"hM": 0,
+		"oA": 0,
+		"oAP": "/page.php",
+		"oF": 0
 		},
 	"/style.css": {
 		"aP": 1,
