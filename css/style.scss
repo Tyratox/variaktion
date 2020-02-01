@@ -34,11 +34,10 @@ h6 {
 a {
   display: inline-block;
   color: #000;
-  border-bottom: #000 3px solid;
+  text-decoration: underline;
 }
 
 a:hover {
-  text-decoration: none;
   color: #000;
   @extend .pulse;
 }
@@ -131,6 +130,7 @@ nav {
 
     a {
       border: none;
+      text-decoration: none;
     }
 
     div {
@@ -418,7 +418,6 @@ $map-paddings: (
 
   a {
     color: #fff;
-    border-color: #fff;
   }
 
   p {
