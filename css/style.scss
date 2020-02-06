@@ -392,6 +392,13 @@ $map-paddings: (
   xl: 6rem
 );
 
+$map-scalings: (
+  sm: 2,
+  md: 1,
+  lg: 1,
+  xl: 1
+);
+
 .map {
   @each $breakpoint, $map-padding in $map-paddings {
     @include media-breakpoint-up($breakpoint, $grid-breakpoints) {
@@ -405,12 +412,26 @@ $map-paddings: (
     padding-top: 3rem;
     position: relative;
     color: #fff;
+    z-index: 1;
 
     @each $breakpoint, $h2-position in $h2-positions {
       @include media-breakpoint-up($breakpoint, $grid-breakpoints) {
         position: $h2-position;
       }
     }
+  }
+
+  svg {
+    transform: scale(2);
+    transition: all 0.3s ease-in-out;
+
+    @each $breakpoint, $map-scaling in $map-scalings {
+      @include media-breakpoint-up($breakpoint, $grid-breakpoints) {
+        transform: scale($map-scaling);
+      }
+    }
+
+    z-index: -1;
   }
 }
 
