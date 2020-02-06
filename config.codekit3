@@ -367,6 +367,14 @@
 		"oAP": "/functions/enqueues.php",
 		"oF": 0
 		},
+	"/functions/helpers.php": {
+		"cB": 0,
+		"ft": 8192,
+		"hM": 0,
+		"oA": 0,
+		"oAP": "/functions/helpers.php",
+		"oF": 0
+		},
 	"/functions/setup.php": {
 		"cB": 0,
 		"ft": 8192,

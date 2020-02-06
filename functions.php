@@ -7,6 +7,7 @@ add_theme_support('html5', array('comment-list', 'comment-form', 'search-form', 
 require_once(locate_template("functions/setup.php"));
 require_once(locate_template("functions/enqueues.php"));
 require_once(locate_template("functions/ajax.php"));
+require_once(locate_template("functions/helpers.php"));
 
 function print_filters_for($hook = '')
 {

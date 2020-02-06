@@ -21,7 +21,7 @@ class VA_Ajax
             array(
                 "Name",
                 "E-Mail",
-                "Nachricht",
+                "Spezifische Interessen",
                 "Geburtstag / Alter am Festival",
                 "Anmeldedatum"
             )
