@@ -407,6 +407,7 @@ $map-scalings: (
   }
 
   background-color: #1c258d;
+  overflow: hidden;
 
   .title {
     padding-top: 3rem;
@@ -523,10 +524,6 @@ $date-sizes: (
   }
 
   svg {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
   }
 
   .date {
