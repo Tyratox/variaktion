@@ -73,8 +73,23 @@ get_header("front"); ?>
     </div>
     <?php echo file_get_contents(locate_template("img/map.svg")); ?>
 </section>
-<section class="help-spacer"></section>
-<section id="help" class="help">
+<section class="info-spacer"></section>
+<section id="info" class="info">
+    <div class="container">
+        <h2 class="h2">Info</h2>
+        <div class="row">
+            <div class="col-12 col-md-6">
+                <p><?php echo get_field("info-text"); ?></p>
+            </div>
+            <div class="col-12 col-md-6">
+                <?php echo file_get_contents(locate_template("img/logo.svg")); ?>
+            </div>
+        </div>
+    </div>
+</section>
+<?php echo file_get_contents(locate_template("img/grass-end.svg")); ?>
+
+<section id="help" class="help inverted">
     <div class="container">
         <h2 class="h2">Helfer gesucht</h2>
         <div class="row">
@@ -125,21 +140,6 @@ get_header("front"); ?>
                         'format' => 'xhtml'
                     )
                 ); ?>
-            </div>
-        </div>
-    </div>
-</section>
-<?php echo file_get_contents(locate_template("img/grass-end.svg")); ?>
-
-<section id="info" class="info">
-    <div class="container">
-        <h2 class="h2">Info</h2>
-        <div class="row">
-            <div class="col-12 col-md-6">
-                <p><?php echo get_field("info-text"); ?></p>
-            </div>
-            <div class="col-12 col-md-6">
-                <?php echo file_get_contents(locate_template("img/logo.svg")); ?>
             </div>
         </div>
     </div>

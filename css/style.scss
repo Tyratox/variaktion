@@ -414,7 +414,7 @@ $map-paddings: (
   }
 }
 
-.info {
+.help {
   color: #fff;
   background-color: #dd1e1c;
 
@@ -485,12 +485,12 @@ $date-sizes: (
   xl: 5rem
 );
 
-.help-spacer {
+.info-spacer {
   padding-top: 4rem;
   background-color: #e5b123;
 }
 
-.help {
+.info {
   position: relative;
   background-color: #e5b123;
   z-index: 0;

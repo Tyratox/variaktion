@@ -53,6 +53,30 @@ div.acf-comment-fields {
   }
 }
 
+.inverted div.input,
+.inverted div.acf-comment-fields {
+  input,
+  .acf-field input,
+  textarea {
+    border-bottom-color: #fff;
+  }
+
+  input::placeholder,
+  textarea::placeholder {
+    color: rgba(255, 255, 255, 0.75);
+  }
+
+  input[type="submit"] {
+    color: #fff;
+    border-color: #fff;
+
+    &:hover {
+      color: #000;
+      background-color: #fff;
+    }
+  }
+}
+
 div.acf-comment-fields {
   @extend .col-12;
 }
