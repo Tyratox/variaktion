@@ -22,7 +22,7 @@ class VA_Ajax
                 "Name",
                 "E-Mail",
                 "Nachricht",
-                "Alter / Geburtsdatum",
+                "Geburtstag / Alter am Festival",
                 "Anmeldedatum"
             )
         );
