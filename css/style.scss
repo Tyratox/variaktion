@@ -272,7 +272,7 @@ ul.footer-list {
 }
 
 $logo-heights: (
-  sm: 10rem,
+  sm: 15rem,
   md: 15rem,
   lg: 20rem,
   xl: 50vh
@@ -293,7 +293,7 @@ $logo-heights: (
 
     transition: all 0.3s ease-in-out;
 
-    height: 10rem;
+    height: 12.5rem;
     width: auto;
 
     @each $breakpoint, $logo-height in $logo-heights {
