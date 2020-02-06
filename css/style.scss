@@ -55,7 +55,9 @@ $font-sizes: (
 
 p,
 div.input input,
-div.input textarea {
+div.acf-comment-fields .acf-field input,
+div.input textarea,
+div.acf-comment-fields .acf-field textarea {
   font-size: 1.25rem;
   @each $breakpoint, $font-size in $font-sizes {
     @include media-breakpoint-up($breakpoint, $grid-breakpoints) {

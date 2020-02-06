@@ -10,9 +10,37 @@ class VA_Ajax
 
     public function get_helpers()
     {
+        header("Content-type: text/csv");
+        header("Content-Disposition: attachment; filename=helfer.csv");
+        header("Pragma: no-cache");
+        header("Expires: 0");
+
         $comments = get_comments();
+        echo implode(
+            ";",
+            array(
+                "Name",
+                "E-Mail",
+                "Nachricht",
+                "Alter / Geburtsdatum",
+                "Anmeldedatum"
+            )
+        );
+
+        echo "\n";
+
+
         echo implode("\n", array_map(function ($comment) {
-            return $comment->comment_author_email;
+            return implode(
+                ";",
+                array(
+                    $comment->comment_author,
+                    $comment->comment_author_email,
+                    $comment->comment_content,
+                    get_field("age", $comment),
+                    $comment->comment_date,
+                )
+            );
         }, $comments));
         wp_die();
     }
