@@ -236,6 +236,7 @@ ul.footer-list {
     align-items: center;
     margin-bottom: 1rem;
     border-bottom: none;
+    text-decoration: none !important;
 
     i {
       color: #000;
@@ -253,12 +254,11 @@ ul.footer-list {
       margin-right: 0.5rem;
 
       transition: all 0.3s ease-in-out;
-
-      text-decoration: none !important;
     }
 
     div {
       display: inline-block;
+      text-decoration: underline;
     }
   }
 
