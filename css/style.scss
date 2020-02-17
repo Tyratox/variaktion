@@ -480,9 +480,10 @@ $map-scalings: (
     justify-content: flex-start;
     margin-bottom: 2rem;
 
-    div {
+    a {
       height: 9rem;
       padding: 4rem 4rem 0 0;
+      display: block;
 
       &:first-child {
         padding-left: 0;
