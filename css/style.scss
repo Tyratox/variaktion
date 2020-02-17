@@ -485,6 +485,10 @@ $map-scalings: (
       padding: 4rem 4rem 0 0;
       display: block;
 
+      &:hover {
+        transform: none;
+      }
+
       &:first-child {
         padding-left: 0;
       }
