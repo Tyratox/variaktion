@@ -216,7 +216,7 @@ get_header("front"); ?>
     foreach ($slugs as $slug => $v) {
         //echo "<div class='row tier-" . $v['tier'] . "'>";
         foreach (sponsorsByCategory($slug) as $post) {
-            echo "<div class=tier-'" . $v['tier'] /*$v['col']*/ . "'>" . get_the_post_thumbnail($post) . "</div>";
+            echo "<a href='" . get_field("link", $post) . "' target='_blank' class='tier-" . $v['tier'] /*$v['col']*/ . "'>" . get_the_post_thumbnail($post) . "</a>";
         }
         //echo "</div>";
     }

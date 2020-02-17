@@ -477,7 +477,7 @@ $map-scalings: (
     display: flex;
     flex-wrap: wrap;
 
-    justify-content: space-between;
+    justify-content: flex-start;
     margin-bottom: 2rem;
 
     div {
