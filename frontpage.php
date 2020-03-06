@@ -107,18 +107,27 @@ get_header("front"); ?>
                         'fields' => array(
                             'author' => '<div class="col-12 col-lg-6">' .
                                 '<div class="input">' .
+                                '<div class="schiller">' .
                                 '<input placeholder="Name" name="author">' .
+                                '<div class="phill"></div>' .
+                                '</div>' .
                                 '</div>' .
                                 '</div>',
                             'email' => '<div class="col-12 col-lg-6">' .
                                 '<div class="input">' .
+                                '<div class="schiller">' .
                                 '<input placeholder="E-Mail" name="email" type="email">' .
+                                '<div class="phill"></div>' .
+                                '</div>' .
                                 '</div>' .
                                 '</div>',
                         ),
                         'comment_field' => '<div class="col-12">' .
                             '<div class="input">' .
+                            '<div class="schiller">' .
                             '<input placeholder="Spezifische Interessen? (optional)" name="comment">' .
+                            '<div class="phill"></div>' .
+                            '</div>' .
                             '</div>' .
                             '</div>',
                         'must_log_in' => '',
@@ -134,7 +143,10 @@ get_header("front"); ?>
                         'submit_field' => '%1$s <div class="hidden">%2$s</div>',
                         'submit_button' => '<div class="col-12 col-lg-6">' .
                             '<div class="input">' .
+                            '<div class="schiller">' .
                             '<input type="submit" value="Absenden">' .
+                            '<div class="phill"></div>' .
+                            '</div>' .
                             '</div>' .
                             '</div>',
                         'format' => 'xhtml'

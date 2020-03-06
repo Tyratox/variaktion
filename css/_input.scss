@@ -10,25 +10,48 @@ div.acf-comment-fields {
     margin: 0;
   }
 
+  & > div.schiller {
+    position: relative;
+  }
+
   input,
   .acf-field input,
   textarea {
+    position: relative;
     font-family: "Roboto", sans-serif;
     font-size: 2rem;
 
     width: 100%;
+    padding: 0 0.25rem;
 
     background-color: transparent;
     border: none;
     border-bottom: transparent 2px solid;
 
-    transition: all 0.3s ease-in-out;
-
     border-bottom: #000 2px solid;
+    z-index: 10;
+
+    & ~ .phill {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+
+      content: "";
+      background-color: #fff;
+      height: 0;
+      transition: 0.2s all ease-in-out;
+      z-index: 0;
+    }
+
+    &:focus ~ .phill {
+      color: #fff;
+      height: 100%;
+    }
 
     &:focus {
       outline: none;
-      animation: pulse 2s ease-in-out 0s 1;
+      color: #dd1e1c !important;
     }
   }
 
