@@ -1,6 +1,6 @@
 import anime from "animejs/lib/anime.es.js";
 
-const f = d => 1e-5 * d * d;
+const f = d => 5e-6 * d * d;
 
 const moveElement = (element, clientX, clientY, width, height) => {
   const rect = element.getBoundingClientRect();
