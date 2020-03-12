@@ -4,7 +4,13 @@
  * Template Name: Frontpage
  */
 
-get_header("banner"); ?>
+get_header("banner");
+
+the_post();
+
+$pageId = get_the_ID();
+
+?>
 <section id="particles">
     <div id="color-background"></div>
     <div class="container">
@@ -81,7 +87,7 @@ get_header("banner"); ?>
         <h2 class="h2">Info</h2>
         <div class="row">
             <div class="col-12 col-md-6">
-                <p><?php echo get_field("info-text"); ?></p>
+                <p><?php echo get_field("info-text", $pageId); ?></p>
             </div>
             <div class="col-12 col-md-6">
                 <?php echo file_get_contents(locate_template("img/logo.svg")); ?>
@@ -96,7 +102,7 @@ get_header("banner"); ?>
         <h2 class="h2">Helfer gesucht</h2>
         <div class="row">
             <div class="col-12 col-md-6">
-                <p><?php echo get_field("helper-text"); ?></p>
+                <p><?php echo get_field("helper-text", $pageId); ?></p>
             </div>
             <div class="col-12 col-md-6">
                 <?php
@@ -166,7 +172,7 @@ get_header("banner"); ?>
         <h2 class="h2">Unterstützen</h2>
         <div class="row">
             <div class="col-12 col-md-6">
-                <p><?php echo get_field("support-text"); ?></p>
+                <p><?php echo get_field("support-text", $pageId); ?></p>
             </div>
             <div class="col-12 col-md-6">
                 <div class="address">
