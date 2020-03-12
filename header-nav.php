@@ -1,5 +1,3 @@
-<?php get_header("html"); ?>
-
 <nav>
     <div class="container">
         <div class="nav">

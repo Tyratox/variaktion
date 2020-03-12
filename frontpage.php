@@ -4,8 +4,9 @@
  * Template Name: Frontpage
  */
 
-get_header("front"); ?>
+get_header("banner"); ?>
 <section id="particles">
+    <div id="color-background"></div>
     <div class="container">
         <div class="spray-logo">
             <?php
@@ -17,9 +18,8 @@ get_header("front"); ?>
 
 <?php get_header("nav"); ?>
 
-<?php /*<section id="lineup" class="lineup">
+<section id="lineup" class="lineup">
     <div class="container">
-        <h2 class="h2">Lineup</h2>
         <div class="artists">
             <?php
 
@@ -40,12 +40,14 @@ get_header("front"); ?>
                 return $query->posts;
             }
 
-            $slugs = array('headliner' => array(
+            $slugs = array('tier-1' => array(
                 'tier' => 1,
-            ), 'known-artists' => array(
+            ), 'tier-2' => array(
                 'tier' => 2
-            ), 'lesser-known-artists' => array(
+            ), 'tier-3' => array(
                 'tier' => 3
+            ), 'tier-4' => array(
+                'tier' => 4
             ));
 
             foreach ($slugs as $slug => $v) {
@@ -53,7 +55,7 @@ get_header("front"); ?>
                 foreach (actsByCategory($slug) as $post) {
                     $origin = get_field('origin', $post->ID);
 
-                    echo "<a href=''>" . $post->post_title . ($origin ? " (" . $origin . ")" : "") . "</a>";
+                    echo "<div class='artist'>" . $post->post_title . "</div>";
                 }
                 echo "</div>";
             }
@@ -63,8 +65,8 @@ get_header("front"); ?>
 
         </div>
     </div>
-</section>*/ ?>
-
+</section>
+<?php echo file_get_contents(locate_template("img/lineup-end.svg")); ?>
 <section class="map">
     <div class="container">
         <div class="title">

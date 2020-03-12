@@ -55,6 +55,16 @@
 		"plM": 52780316221407,
 		"prP": 0
 		},
+	"/assets/lineup-end.svg": {
+		"ft": 2097152,
+		"miP": 0,
+		"oA": 2,
+		"oAP": "/assets/lineup-end.svg",
+		"oF": 0,
+		"opt": 0,
+		"plM": 52780316221407,
+		"prP": 0
+		},
 	"/assets/map.svg": {
 		"ft": 2097152,
 		"miP": 0,
@@ -383,12 +393,12 @@
 		"oAP": "/functions/setup.php",
 		"oF": 0
 		},
-	"/header-front.php": {
+	"/header-banner.php": {
 		"cB": 0,
 		"ft": 8192,
 		"hM": 0,
 		"oA": 0,
-		"oAP": "/header-front.php",
+		"oAP": "/header-banner.php",
 		"oF": 0
 		},
 	"/header-html.php": {
@@ -407,6 +417,14 @@
 		"oAP": "/header-nav.php",
 		"oF": 0
 		},
+	"/header-negative-banner.php": {
+		"cB": 0,
+		"ft": 8192,
+		"hM": 0,
+		"oA": 0,
+		"oAP": "/header-negative-banner.php",
+		"oF": 0
+		},
 	"/header.php": {
 		"cB": 0,
 		"ft": 8192,
@@ -415,11 +433,11 @@
 		"oAP": "/header.php",
 		"oF": 0
 		},
-	"/img/191218_var_entwürfe_02-29-inverted.svg": {
+	"/img/191218_var_entwürfe_02-29-negative.svg": {
 		"ft": 2097152,
 		"miP": 0,
 		"oA": 2,
-		"oAP": "/img/191218_var_entwürfe_02-29-inverted.svg",
+		"oAP": "/img/191218_var_entwürfe_02-29-negative.svg",
 		"oF": 0,
 		"opt": 0,
 		"plM": 52780316221407,
@@ -430,6 +448,16 @@
 		"miP": 0,
 		"oA": 2,
 		"oAP": "/img/191218_var_entwürfe_02-29.svg",
+		"oF": 0,
+		"opt": 0,
+		"plM": 52780316221407,
+		"prP": 0
+		},
+	"/img/191218_var_entwürfe_02-30-negative.svg": {
+		"ft": 2097152,
+		"miP": 0,
+		"oA": 2,
+		"oAP": "/img/191218_var_entwürfe_02-30-negative.svg",
 		"oF": 0,
 		"opt": 0,
 		"plM": 52780316221407,
@@ -495,11 +523,31 @@
 		"plM": 52780316221407,
 		"prP": 0
 		},
+	"/img/hg_start.svg": {
+		"ft": 2097152,
+		"miP": 0,
+		"oA": 2,
+		"oAP": "/img/hg_start.svg",
+		"oF": 0,
+		"opt": 0,
+		"plM": 52780316221407,
+		"prP": 0
+		},
 	"/img/info-end.svg": {
 		"ft": 2097152,
 		"miP": 0,
 		"oA": 2,
 		"oAP": "/img/info-end.svg",
+		"oF": 0,
+		"opt": 0,
+		"plM": 52780316221407,
+		"prP": 0
+		},
+	"/img/lineup-end.svg": {
+		"ft": 2097152,
+		"miP": 0,
+		"oA": 2,
+		"oAP": "/img/lineup-end.svg",
 		"oF": 0,
 		"opt": 0,
 		"plM": 52780316221407,

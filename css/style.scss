@@ -278,15 +278,15 @@ ul.footer-list {
 $logo-heights: (
   sm: 15rem,
   md: 15rem,
-  lg: 20rem,
-  xl: 50vh
+  lg: 45rem,
+  xl: 100vh
 );
 
 .spray-logo {
   position: relative;
 
   overflow: hidden;
-  height: calc(100vh - 4.375rem);
+  height: calc(100vh - 3.875rem);
 
   svg {
     position: absolute;
@@ -340,7 +340,7 @@ $logo-heights: (
 }
 
 .lineup {
-  background-color: #1c258d;
+  background-color: #e5b123;
   color: #fff;
 
   padding-top: 3rem;
@@ -349,6 +349,8 @@ $logo-heights: (
 
 .artists {
   @extend .anton;
+
+  padding-top: 4rem;
 
   & > div {
     display: flex;
@@ -361,24 +363,24 @@ $logo-heights: (
     font-size: 5rem;
   }
   .tier-2 {
-    font-size: 3rem;
+    font-size: 4rem;
   }
   .tier-3 {
-    font-size: 2rem;
+    font-size: 4rem;
+  }
+  .tier-4 {
+    font-size: 4rem;
   }
 
-  a {
+  .artist {
+    padding: 0 1.25rem;
     display: inline-block;
     color: #fff;
 
     border-bottom: none;
-
-    @extend .text-3d-white;
-  }
-
-  & > div > a:not(:last-child):after {
-    content: "-";
-    margin: 0 0.5rem;
+    text-decoration: none;
+    text-shadow: 1px 1px rgba(0, 0, 0, 0.5), 2px 2px rgba(0, 0, 0, 0.5),
+      3px 3px rgba(0, 0, 0, 0.5);
   }
 }
 
@@ -450,6 +452,21 @@ $map-scalings: (
     margin-bottom: 0;
     padding-bottom: 2rem;
   }
+}
+
+#color-background {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100vh;
+
+  background-image: url(../img/hg_start.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center bottom;
+
+  z-index: -1;
 }
 
 .particles-js-canvas-el {
@@ -548,6 +565,18 @@ $date-sizes: (
       }
     }
   }
+}
+
+.page {
+  padding-top: 1rem;
+}
+
+.page-design-negative {
+  color: #fff;
+}
+
+.page-heading {
+  padding-top: 10rem;
 }
 
 .page-content {
