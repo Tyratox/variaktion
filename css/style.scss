@@ -547,7 +547,9 @@ $date-sizes: (
     z-index: 1;
   }
 
-  svg {
+  .stamp {
+    width: 60%;
+    margin: 0 auto;
   }
 
   .date {

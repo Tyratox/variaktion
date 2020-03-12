@@ -90,7 +90,9 @@ $pageId = get_the_ID();
                 <p><?php echo get_field("info-text", $pageId); ?></p>
             </div>
             <div class="col-12 col-md-6">
-                <?php echo file_get_contents(locate_template("img/logo.svg")); ?>
+                <div class="stamp">
+                    <?php echo file_get_contents(locate_template("img/stamp.svg")); ?>
+                </div>
             </div>
         </div>
     </div>
