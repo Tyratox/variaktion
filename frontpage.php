@@ -109,7 +109,7 @@ $pageId = get_the_ID();
             </div>
             <div class="col-12 col-md-6">
                 <?php
-                if (is_user_logged_in()) {
+                /*if (is_user_logged_in()) {
                     echo "<p>Wöll du agmeldet besch zeigts do kes namen und email feld a.</p>";
                 }
                 comment_form(
@@ -162,7 +162,7 @@ $pageId = get_the_ID();
                             '</div>',
                         'format' => 'xhtml'
                     )
-                ); ?>
+                );*/ ?>
             </div>
         </div>
     </div>
