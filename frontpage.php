@@ -86,14 +86,15 @@ $pageId = get_the_ID();
     <div class="container">
         <h2 class="h2">Info</h2>
         <div class="row">
-            <div class="col-12 col-md-6">
+            <div class="col-12 col-md-12">
                 <p><?php echo get_field("info-text", $pageId); ?></p>
             </div>
-            <div class="col-12 col-md-6">
+            <?php /*<div class="col-12 col-md-6">
                 <div class="stamp">
                     <?php echo file_get_contents(locate_template("img/stamp.svg")); ?>
                 </div>
-            </div>
+            </div>*/ ?>
+
         </div>
     </div>
 </section>
