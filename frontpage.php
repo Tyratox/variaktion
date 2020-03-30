@@ -14,10 +14,11 @@ $pageId = get_the_ID();
 <section id="particles">
     <div id="color-background"></div>
     <div class="container">
-        <div class="spray-logo">
+        <div class="spray-logo" style="position:relative;">
             <?php
-            echo file_get_contents(locate_template("img/191228_logo_mini.svg"));
+            //echo file_get_contents(locate_template("img/191228_logo_mini.svg"));
             ?>
+            <div style="position:absolute;left:50%;top:50%;transform:translate(-50%, -50%);font-size:5rem;text-align:center;color:#fff;font-family:Anton, sans-serif;">Leider auf 2021 verschoben</div>
         </div>
     </div>
 </section>
