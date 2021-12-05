@@ -46,6 +46,11 @@ a:hover {
   box-sizing: border-box;
 }
 
+hr {
+	border: none;
+	border-top: #000 3px solid;
+}
+
 $font-sizes: (
   sm: 1.25rem,
   md: 1.5rem,
