@@ -94,6 +94,13 @@ header {
   }
 }
 
+.header-row {
+	div:last-child svg {
+		margin-left: auto;
+		display: block;
+	}
+}
+
 $nav-sizes: (
   sm: 1.5rem,
   md: 1.5rem,
@@ -138,6 +145,13 @@ nav {
 
     div {
       padding: 0 0.5rem;
+      
+      &:first-child{
+	      padding-left: 0;
+      }
+      &:last-child{
+	      padding-right: 0;
+      }
     }
   }
 }
@@ -533,12 +547,12 @@ $date-sizes: (
 
 .info-spacer {
   padding-top: 4rem;
-  background-color: #e5b123;
+  background-color: #fff/*#e5b123*/;
 }
 
 .info {
   position: relative;
-  background-color: #e5b123;
+  background-color: #fff/*#e5b123*/;
   z-index: 0;
   padding-bottom: 2rem;
 

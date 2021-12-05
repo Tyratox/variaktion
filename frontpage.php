@@ -12,20 +12,25 @@ $pageId = get_the_ID();
 
 ?>
 <section id="particles">
-    <div id="color-background"></div>
+    <?php /*<div id="color-background"></div>*/ ?>
     <div class="container">
         <div class="spray-logo" style="position:relative;">
             <?php
-            //echo file_get_contents(locate_template("img/191228_logo_mini.svg"));
+              echo file_get_contents(locate_template("img/191228_logo_mini.svg"));
             ?>
-            <div style="position:absolute;left:50%;top:50%;transform:translate(-50%, -50%);font-size:5rem;text-align:center;color:#fff;font-family:Anton, sans-serif;">Leider auf 2021 verschoben</div>
+            <?php
+	        /*<div style="position:absolute;left:50%;top:50%;transform:translate(-50%, -50%);font-size:5rem;text-align:center;color:#fff;font-family:Anton, sans-serif;">
+	            Das Variaktion findet neu vom 17.-19. Juni 2022 statt!
+	        </div>*/
+	        ?>
         </div>
     </div>
 </section>
 
 <?php get_header("nav"); ?>
 
-<section id="lineup" class="lineup">
+<?php
+/*<section id="lineup" class="lineup">
     <div class="container">
         <div class="artists">
             <?php
@@ -72,8 +77,13 @@ $pageId = get_the_ID();
 
         </div>
     </div>
-</section>
+</section>*/ ?>
+
+<?php /*
+
 <?php echo file_get_contents(locate_template("img/lineup-end.svg")); ?>
+
+
 <section class="map">
     <div class="container">
         <div class="title">
@@ -82,7 +92,11 @@ $pageId = get_the_ID();
     </div>
     <?php echo file_get_contents(locate_template("img/map.svg")); ?>
 </section>
+*/ ?>
+
 <section class="info-spacer"></section>
+
+
 <section id="info" class="info">
     <div class="container">
         <h2 class="h2">Info</h2>
@@ -99,77 +113,7 @@ $pageId = get_the_ID();
         </div>
     </div>
 </section>
-<?php echo file_get_contents(locate_template("img/grass-end.svg")); ?>
-
-<section id="help" class="help inverted">
-    <div class="container">
-        <h2 class="h2">Helfer gesucht</h2>
-        <div class="row">
-            <div class="col-12 col-md-6">
-                <p><?php echo get_field("helper-text", $pageId); ?></p>
-            </div>
-            <div class="col-12 col-md-6">
-                <?php
-                /*if (is_user_logged_in()) {
-                    echo "<p>Wöll du agmeldet besch zeigts do kes namen und email feld a.</p>";
-                }
-                comment_form(
-                    array(
-                        'class_form' => 'class_form row',
-                        'fields' => array(
-                            'author' => '<div class="col-12 col-lg-6">' .
-                                '<div class="input">' .
-                                '<div class="schiller">' .
-                                '<input placeholder="Name" name="author">' .
-                                '<div class="phill"></div>' .
-                                '</div>' .
-                                '</div>' .
-                                '</div>',
-                            'email' => '<div class="col-12 col-lg-6">' .
-                                '<div class="input">' .
-                                '<div class="schiller">' .
-                                '<input placeholder="E-Mail" name="email" type="email">' .
-                                '<div class="phill"></div>' .
-                                '</div>' .
-                                '</div>' .
-                                '</div>',
-                        ),
-                        'comment_field' => '<div class="col-12">' .
-                            '<div class="input">' .
-                            '<div class="schiller">' .
-                            '<input placeholder="Spezifische Interessen? (optional)" name="comment">' .
-                            '<div class="phill"></div>' .
-                            '</div>' .
-                            '</div>' .
-                            '</div>',
-                        'must_log_in' => '',
-                        'logged_in_as' => '',
-                        'cancel_reply_before' => '',
-                        'cancel_reply_after' => '',
-                        'cancel_reply_link' => ' ',
-                        'comment_notes_before' => '',
-                        'comment_notes_after' => '',
-                        'title_reply' => '',
-                        'title_reply_before' => '',
-                        'title_reply_after' => '',
-                        'submit_field' => '%1$s <div class="hidden">%2$s</div>',
-                        'submit_button' => '<div class="col-12 col-lg-6">' .
-                            '<div class="input">' .
-                            '<div class="schiller">' .
-                            '<input type="submit" value="Absenden">' .
-                            '<div class="phill"></div>' .
-                            '</div>' .
-                            '</div>' .
-                            '</div>',
-                        'format' => 'xhtml'
-                    )
-                );*/ ?>
-            </div>
-        </div>
-    </div>
-</section>
-
-<?php echo file_get_contents(locate_template("img/info-end.svg")); ?>
+<?php /*echo file_get_contents(locate_template("img/info-end.svg"));*/ ?>
 
 <section id="support" class="support">
     <div class="container">
@@ -196,7 +140,7 @@ $pageId = get_the_ID();
 <section class="sponsors">
     <?php
 
-    echo "<div class='container'>";
+    echo "<div class='container' id='sponsors'>";
 
     echo '<h2 class="h2">Sponsoren</h2>';
 
