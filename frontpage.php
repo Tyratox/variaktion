@@ -151,6 +151,8 @@ $pageId = get_the_ID();
         $query = new WP_Query(array(
             "post_type" => "sponsor",
             "posts_per_page" => -1,
+            "order" => "ASC",
+            "orderby" => "date",
             'tax_query' => array(
                 array(
                     'taxonomy' => 'sponsor_category',
