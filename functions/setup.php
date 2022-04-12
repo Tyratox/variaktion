@@ -56,9 +56,10 @@ class VA_Setup
 	public function admin_menu()
 	{
 		remove_menu_page('edit.php');
+		remove_menu_page( 'edit-comments.php' );
 
 		global $menu; // Global to get menu array
-		$menu[25][0] = 'Helfer'; // Change name of posts to portfolio
+		// $menu[25][0] = 'Helfer'; // Change name of comments to "Helfer"
 		//remove_menu_page('edit-comments.php');
 	}
 

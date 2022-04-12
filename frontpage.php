@@ -12,11 +12,11 @@ $pageId = get_the_ID();
 
 ?>
 <section id="particles">
-    <?php /*<div id="color-background"></div>*/ ?>
+    <div id="color-background"></div>
     <div class="container">
         <div class="spray-logo" style="position:relative;">
             <?php
-              echo file_get_contents(locate_template("img/191228_logo_mini.svg"));
+              echo file_get_contents(locate_template("img/191228_logo_mini_negative.svg"));
             ?>
             <?php
 	        /*<div style="position:absolute;left:50%;top:50%;transform:translate(-50%, -50%);font-size:5rem;text-align:center;color:#fff;font-family:Anton, sans-serif;">
@@ -29,8 +29,9 @@ $pageId = get_the_ID();
 
 <?php get_header("nav"); ?>
 
-<?php
-/*<section id="lineup" class="lineup">
+<section id="lineup" class="lineup">
+	<div id="lineup-background"></div>
+	<div id="lineup-bbackground"></div>
     <div class="container">
         <div class="artists">
             <?php
@@ -66,8 +67,9 @@ $pageId = get_the_ID();
                 echo "<div class='row tier-" . $v['tier'] . "'>";
                 foreach (actsByCategory($slug) as $post) {
                     $origin = get_field('origin', $post->ID);
+                    $time = get_field('time', $post->ID);
 
-                    echo "<div class='artist'>" . $post->post_title . "</div>";
+                    echo "<div class='artist'><span>" . $post->post_title . "</span><wbr><small>" . $time . "</small>" . "</div>";
                 }
                 echo "</div>";
             }
@@ -77,9 +79,7 @@ $pageId = get_the_ID();
 
         </div>
     </div>
-</section>*/ ?>
-
-<?php /*
+</section>
 
 <?php echo file_get_contents(locate_template("img/lineup-end.svg")); ?>
 
@@ -92,7 +92,6 @@ $pageId = get_the_ID();
     </div>
     <?php echo file_get_contents(locate_template("img/map.svg")); ?>
 </section>
-*/ ?>
 
 <section class="info-spacer"></section>
 
@@ -104,16 +103,10 @@ $pageId = get_the_ID();
             <div class="col-12 col-md-12">
                 <p><?php echo get_field("info-text", $pageId); ?></p>
             </div>
-            <?php /*<div class="col-12 col-md-6">
-                <div class="stamp">
-                    <?php echo file_get_contents(locate_template("img/stamp.svg")); ?>
-                </div>
-            </div>*/ ?>
-
         </div>
     </div>
 </section>
-<?php /*echo file_get_contents(locate_template("img/info-end.svg"));*/ ?>
+<?php echo file_get_contents(locate_template("img/info-end.svg")); ?>
 
 <section id="support" class="support">
     <div class="container">
@@ -137,6 +130,7 @@ $pageId = get_the_ID();
         </div>
     </div>
 </section>
+<?php echo file_get_contents(locate_template("img/support-end.svg")); ?>
 <section class="sponsors">
     <?php
 

@@ -48,7 +48,7 @@ a:hover {
 
 hr {
 	border: none;
-	border-top: #000 3px solid;
+	border-top: #fff 3px solid;
 	margin-bottom: 1rem;
 }
 
@@ -220,8 +220,9 @@ $hr-displays: (
 );
 
 footer {
-  border-top: #000 3px solid;
-  background-color: #fff;
+  border-top: #fff 3px solid;
+  background-color: #1C0B47;
+  color: #fff;
   padding: 2rem 0;
 
   hr {
@@ -259,10 +260,11 @@ ul.footer-list {
     margin-bottom: 1rem;
     border-bottom: none;
     text-decoration: none !important;
+    color: #fff;
 
     i {
-      color: #000;
-      border: #000 2px solid;
+      color: #fff;
+      border: #fff 2px solid;
       border-radius: 50%;
 
       font-size: 1.5rem;
@@ -286,8 +288,8 @@ ul.footer-list {
 
   li > a:hover {
     i {
-      background-color: #000;
-      color: #fff;
+      background-color: #fff;
+      color: #000;
     }
     span {
       text-decoration: underline;
@@ -360,11 +362,34 @@ $logo-heights: (
 }
 
 .lineup {
-  background-color: #e5b123;
   color: #fff;
 
   padding-top: 3rem;
   padding-bottom: 5rem;
+  position: relative;
+}
+
+#lineup-bbackground {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	
+	background-color: #EBBD04;
+	z-index: -2;
+}
+#lineup-background {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	height: 100vh;
+	background-image: url(../img/artists-background.svg);
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center top;
+	z-index: -1;
 }
 
 .artists {
@@ -396,11 +421,27 @@ $logo-heights: (
     padding: 0 1.25rem;
     display: inline-block;
     color: #fff;
+    text-align: center;
 
     border-bottom: none;
     text-decoration: none;
-    text-shadow: 1px 1px rgba(0, 0, 0, 0.5), 2px 2px rgba(0, 0, 0, 0.5),
-      3px 3px rgba(0, 0, 0, 0.5);
+    
+    /*line-height: 0.4;
+	margin-top: 3.5rem;*/
+    /*text-shadow: 1px 1px rgba(0, 0, 0, 0.5), 2px 2px rgba(0, 0, 0, 0.5),
+      3px 3px rgba(0, 0, 0, 0.5);*/
+      
+	& > span {
+		display: inline-block;
+	}
+      
+    & > small {
+	    display: inline-block;
+	    font-size: 2rem;
+	    margin-left: 0.5rem;
+	    white-space: nowrap;
+	    word-break: keep-all;
+    }
   }
 }
 
@@ -432,7 +473,7 @@ $map-scalings: (
     }
   }
 
-  background-color: #1c258d;
+  background-color: #5E17EB;
   overflow: hidden;
 
   .title {
@@ -481,7 +522,7 @@ $map-scalings: (
   right: 0;
   height: 100vh;
 
-  background-image: url(../img/hg_start.svg);
+  background-image: url(../img/banner-background.svg);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center bottom;
@@ -500,9 +541,12 @@ $map-scalings: (
 }
 
 .sponsors {
-  margin-top: 10rem;
-  margin-bottom: 5rem;
+  padding-top: 10rem;
+  padding-bottom: 5rem;
   font-size: 1.5rem;
+  
+  background-color: #1C0B47;
+  color: #fff;
 
   .row {
     margin-top: 1rem;
@@ -553,12 +597,13 @@ $date-sizes: (
 
 .info-spacer {
   padding-top: 4rem;
-  background-color: #fff/*#e5b123*/;
+  background-color: #e5b123;
 }
 
 .info {
   position: relative;
-  background-color: #fff/*#e5b123*/;
+  background-color: #e5b123;
+  color: #fff;
   z-index: 0;
   padding-bottom: 2rem;
 
@@ -587,6 +632,11 @@ $date-sizes: (
       }
     }
   }
+}
+
+.support {
+	background-color: #7ED957;
+	color: #fff;
 }
 
 .page {
