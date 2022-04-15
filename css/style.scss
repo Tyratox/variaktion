@@ -321,6 +321,7 @@ $logo-heights: (
 
   overflow: hidden;
   height: 100vh;
+  height: -webkit-fill-available; /* https://allthingssmitty.com/2020/05/11/css-fix-for-100vh-in-mobile-webkit/ */
   /* height: calc(100vh - 3.875rem); */
 
   svg {
@@ -398,6 +399,7 @@ $logo-heights: (
 	left: 0;
 	right: 0;
 	height: 100vh;
+	height: -webkit-fill-available; /* https://allthingssmitty.com/2020/05/11/css-fix-for-100vh-in-mobile-webkit/ */
 	background-image: url(../img/artists-background.svg);
 	background-repeat: no-repeat;
 	background-size: cover;
@@ -547,6 +549,7 @@ $map-scalings: (
   left: 0;
   right: 0;
   height: 100vh;
+  height: -webkit-fill-available; /* https://allthingssmitty.com/2020/05/11/css-fix-for-100vh-in-mobile-webkit/ */
 
   background-image: url(../img/banner-background.svg);
   background-repeat: no-repeat;
