@@ -131,6 +131,40 @@ $pageId = get_the_ID();
     </div>
 </section>
 <?php echo file_get_contents(locate_template("img/support-end.svg")); ?>
+<section id="press">
+	<div class="container">
+		<h2 class="h2">Presse</h2>
+		<div class="press-articles">
+			<?php
+				
+				$query = new WP_Query(array(
+		            "post_type" => "press-article",
+		            "posts_per_page" => -1,
+		            "order" => "ASC",
+		            "orderby" => "date"
+		        ));
+		
+		        foreach($query->posts as $post){
+			        echo '<a href="' . get_field('article_url', $post) . '" target="_blank">';
+			        	echo '<div class="row">';
+					        echo '<div class="col-12 col-md-4">';
+					        	echo '<h3>' . get_field('newspaper', $post) . '</h3>';
+					        	echo '<p>' . get_the_date('d.m.Y H:i', $post) . '</p>';
+					        	echo '<p><u>Zum Artikel</u></p>';
+							echo '</div>';
+							echo '<div class="col-12 col-md-8">';
+								echo '<h3>' . $post->post_title . '</h3>';
+								echo '<div>' . apply_filters('the_content', $post->post_content) . '</div>';
+							echo '</div>';
+						echo '</div>';
+					echo '</a>';
+		        }
+				
+			?>
+		</div>
+	</div>
+</section>
+<?php echo file_get_contents(locate_template("img/press-end.svg")); ?>
 <section class="sponsors">
     <?php
 

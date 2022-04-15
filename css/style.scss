@@ -134,14 +134,26 @@ nav {
   padding: 0.5rem 0;
   border-top: #000 3px solid;
   border-bottom: #000 3px solid;
-
+  
   z-index: 999999;
+  
+  /* fix positioning */
+  height: 4rem;
+  margin-top: -4rem;
+  display: flex;
+  justify-content: center;
+  
+  .container {
+	  display: flex;
+  }
 
   .nav {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
+    
+    width: 100%;
 
     a {
       border: none;
@@ -308,7 +320,8 @@ $logo-heights: (
   position: relative;
 
   overflow: hidden;
-  height: calc(100vh - 3.875rem);
+  height: 100vh;
+  /* height: calc(100vh - 3.875rem); */
 
   svg {
     position: absolute;
@@ -392,6 +405,14 @@ $logo-heights: (
 	z-index: -1;
 }
 
+
+$artist-displays: (
+  sm: block,
+  md: inline-block,
+  lg: inline-block,
+  xl: inline-block
+);
+
 .artists {
   @extend .anton;
 
@@ -431,12 +452,17 @@ $logo-heights: (
     /*text-shadow: 1px 1px rgba(0, 0, 0, 0.5), 2px 2px rgba(0, 0, 0, 0.5),
       3px 3px rgba(0, 0, 0, 0.5);*/
       
-	& > span {
-		display: inline-block;
-	}
+    & > * {
+	    display: block;
+	    
+	    @each $breakpoint, $artist-display in $artist-displays {
+		    @include media-breakpoint-up($breakpoint, $grid-breakpoints) {
+			    display: $artist-display;
+			}
+		}
+    }
       
     & > small {
-	    display: inline-block;
 	    font-size: 2rem;
 	    margin-left: 0.5rem;
 	    white-space: nowrap;
@@ -541,7 +567,6 @@ $map-scalings: (
 }
 
 .sponsors {
-  padding-top: 10rem;
   padding-bottom: 5rem;
   font-size: 1.5rem;
   
@@ -637,6 +662,26 @@ $date-sizes: (
 .support {
 	background-color: #7ED957;
 	color: #fff;
+}
+
+#press {
+	background-color: #FF00B0;
+	color: #fff;
+	
+	a {
+		color: #fff;
+	}
+}
+
+.press-articles {
+	& > a {
+		display: block;
+		text-decoration: none;
+	}
+	h3 {
+		font-size: 2rem;
+		margin-bottom: 0.5rem;
+	}
 }
 
 .page {
