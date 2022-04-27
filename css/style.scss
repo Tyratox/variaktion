@@ -321,7 +321,12 @@ $logo-heights: (
 
   overflow: hidden;
   height: 100vh;
-  height: -webkit-fill-available; /* https://allthingssmitty.com/2020/05/11/css-fix-for-100vh-in-mobile-webkit/ */
+  
+  /* Avoid Chrome to see Safari hack */
+  @supports (-webkit-touch-callout: none) {
+    height: -webkit-fill-available; /* https://allthingssmitty.com/2020/05/11/css-fix-for-100vh-in-mobile-webkit/ */
+  }
+  
   /* height: calc(100vh - 3.875rem); */
 
   svg {
@@ -399,7 +404,12 @@ $logo-heights: (
 	left: 0;
 	right: 0;
 	height: 100vh;
-	height: -webkit-fill-available; /* https://allthingssmitty.com/2020/05/11/css-fix-for-100vh-in-mobile-webkit/ */
+	
+	/* Avoid Chrome to see Safari hack */
+    @supports (-webkit-touch-callout: none) {
+      height: -webkit-fill-available; /* https://allthingssmitty.com/2020/05/11/css-fix-for-100vh-in-mobile-webkit/ */
+    }
+    
 	background-image: url(../img/artists-background.svg);
 	background-repeat: no-repeat;
 	background-size: cover;
@@ -415,10 +425,17 @@ $artist-displays: (
   xl: inline-block
 );
 
+$artist-name-sizes: (
+  sm: 3rem,
+  md: 3rem,
+  lg: 6rem,
+  xl: 6rem
+);
+
 .artists {
   @extend .anton;
 
-  padding-top: 4rem;
+  padding-top: 2rem;
 
   & > div {
     display: flex;
@@ -428,16 +445,33 @@ $artist-displays: (
   }
 
   .tier-1 {
-    font-size: 5rem;
+    font-size: 3rem;
+    @each $breakpoint, $artist-name-size in $artist-name-sizes {
+      @include media-breakpoint-up($breakpoint, $grid-breakpoints) {
+        font-size: $artist-name-size;
+      }
+    }
   }
   .tier-2 {
-    font-size: 4rem;
+    font-size: 3rem;
   }
   .tier-3 {
-    font-size: 4rem;
+    font-size: 3rem;
   }
   .tier-4 {
-    font-size: 4rem;
+    font-size: 3rem;
+  }
+  
+  .date {
+	  margin-top: 3rem;
+	  margin-bottom: 1rem;
+	  
+	  font-size: 3rem;
+	  white-space: nowrap;
+	  word-break: keep-all;
+	  text-stroke: 1.5px #fff;
+	  -webkit-text-stroke: 1.5px #fff;
+	  color: transparent;
   }
 
   .artist {
@@ -469,6 +503,9 @@ $artist-displays: (
 	    margin-left: 0.5rem;
 	    white-space: nowrap;
 	    word-break: keep-all;
+	    text-stroke: 1.5px #fff;
+	    -webkit-text-stroke: 1.5px #fff;
+	    color: transparent;
     }
   }
 }
@@ -549,7 +586,11 @@ $map-scalings: (
   left: 0;
   right: 0;
   height: 100vh;
-  height: -webkit-fill-available; /* https://allthingssmitty.com/2020/05/11/css-fix-for-100vh-in-mobile-webkit/ */
+  
+  /* Avoid Chrome to see Safari hack */
+  @supports (-webkit-touch-callout: none) {
+    height: -webkit-fill-available; /* https://allthingssmitty.com/2020/05/11/css-fix-for-100vh-in-mobile-webkit/ */
+  }
 
   background-image: url(../img/banner-background.svg);
   background-repeat: no-repeat;

@@ -35,9 +35,10 @@ $pageId = get_the_ID();
     <div class="container">
         <div class="artists">
             <?php
+	            
+	        $dates = array('friday' => array('name' => 'freitag'), 'saturday' => array('name' => 'samstag'));
 
-            function actsByCategory($slug)
-            {
+            function acts_by_category_date($category, $date){
                 $query = new WP_Query(array(
                     "post_type" => "act",
                     "posts_per_page" => -1,
@@ -45,7 +46,12 @@ $pageId = get_the_ID();
                         array(
                             'taxonomy' => 'act_category',
                             'field' => 'slug',
-                            'terms' => $slug,
+                            'terms' => $category,
+                        ),
+                        array(
+                            'taxonomy' => 'act_date',
+                            'field' => 'slug',
+                            'terms' => $date,
                         )
                     ),
                 ));
@@ -62,16 +68,21 @@ $pageId = get_the_ID();
             ), 'tier-4' => array(
                 'tier' => 4
             ));
-
-            foreach ($slugs as $slug => $v) {
-                echo "<div class='row tier-" . $v['tier'] . "'>";
-                foreach (actsByCategory($slug) as $post) {
-                    $origin = get_field('origin', $post->ID);
-                    $time = get_field('time', $post->ID);
-
-                    echo "<div class='artist'><span>" . $post->post_title . "</span><wbr><small>" . $time . "</small>" . "</div>";
-                }
-                echo "</div>";
+            
+            foreach($dates as $date => $dv){
+	            
+	            echo "<div class='date'>" . $dv['name'] . "</div>";
+	            
+	            foreach($slugs as $slug => $v) {
+	                echo "<div class='row tier-" . $v['tier'] . "'>";
+	                foreach(acts_by_category_date($slug, $date) as $post) {
+	                    $origin = get_field('origin', $post->ID);
+	                    $time = get_field('time', $post->ID);
+	
+	                    echo "<div class='artist'><span>" . $post->post_title . "</span><wbr><small>" . $time . "</small>" . "</div>";
+	                }
+	                echo "</div>";
+	            }
             }
 
 
