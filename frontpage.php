@@ -78,8 +78,13 @@ $pageId = get_the_ID();
 	                foreach(acts_by_category_date($slug, $date) as $post) {
 	                    $origin = get_field('origin', $post->ID);
 	                    $time = get_field('time', $post->ID);
-	
-	                    echo "<div class='artist'><span>" . $post->post_title . "</span><wbr><small>" . $time . "</small>" . "</div>";
+	                    $link = get_field('link', $post->ID);
+	                    
+	                    if(empty($link)){
+		                    echo "<div class='artist'><span>" . $post->post_title . "</span><wbr><small>" . $time . "</small>" . "</div>";
+	                    }else{
+		                    echo "<a class='artist' href='" . $link . "' target='_blank'><span>" . $post->post_title . "</span><wbr><small>" . $time . "</small>" . "</a>";
+	                    }
 	                }
 	                echo "</div>";
 	            }
@@ -87,7 +92,16 @@ $pageId = get_the_ID();
 
 
             ?>
-
+            
+            <iframe
+            	class="spotify-player"
+            	style="border-radius:12px"
+            	src="https://open.spotify.com/embed/playlist/51IhkW6F73FsmYLQRTy6kG?utm_source=generator"
+            	width="100%"
+            	height="380"
+            	frameBorder="0"
+            	allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+            ></iframe>
         </div>
     </div>
 </section>

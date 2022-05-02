@@ -24,7 +24,7 @@ class VA_Enqueues
 	}
 	public function enqueue_styles()
 	{
-		wp_register_style('primary', get_template_directory_uri() . '/css/style.css', array(), "1.1.4");
+		wp_register_style('primary', get_template_directory_uri() . '/css/style.css', array(), "1.1.6");
 		wp_enqueue_style('primary');
 	}
 }
