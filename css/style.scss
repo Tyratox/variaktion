@@ -1,3 +1,20 @@
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1921px
+);
+
+$container-max-widths: (
+  sm: 540px,
+  md: 720px,
+  lg: 960px,
+  xl: 1140px,
+  xxl: 1300px
+);
+
 @import "animation";
 @import "fonts";
 @import "input";
@@ -56,14 +73,16 @@ $font-sizes: (
   sm: 1.25rem,
   md: 1.5rem,
   lg: 1.5rem,
-  xl: 1.5rem
+  xl: 1.5rem,
+  xxl: 2rem
 );
 
 p,
 div.input input,
 div.acf-comment-fields .acf-field input,
 div.input textarea,
-div.acf-comment-fields .acf-field textarea {
+div.acf-comment-fields .acf-field textarea,
+.table {
   font-size: 1.25rem;
   @each $breakpoint, $font-size in $font-sizes {
     @include media-breakpoint-up($breakpoint, $grid-breakpoints) {
@@ -111,7 +130,16 @@ $nav-sizes: (
   sm: 1.5rem,
   md: 1.5rem,
   lg: 2rem,
-  xl: 2rem
+  xl: 2rem,
+  xxl: 3rem
+);
+
+$nav-heights: (
+  sm: 4rem,
+  md: 4rem,
+  lg: 4rem,
+  xl: 5rem,
+  xxl: 6rem
 );
 
 nav {
@@ -140,6 +168,13 @@ nav {
   /* fix positioning */
   height: 4rem;
   margin-top: -4rem;
+  @each $breakpoint, $nav-height in $nav-heights {
+    @include media-breakpoint-up($breakpoint, $grid-breakpoints) {
+      height: $nav-height;
+	  margin-top: -$nav-height;
+    }
+  }
+  
   display: flex;
   justify-content: center;
   
@@ -204,7 +239,8 @@ $h2-sizes: (
   sm: 3rem,
   md: 4rem,
   lg: 5rem,
-  xl: 5.8rem
+  xl: 5.8rem,
+  xxl: 6.5rem
 );
 
 .h2 {
@@ -220,6 +256,27 @@ $h2-sizes: (
   }
 }
 
+$h3-sizes: (
+  sm: 2rem,
+  md: 3rem,
+  lg: 4rem,
+  xl: 4.5rem,
+  xxl: 5rem
+);
+
+.h3 {
+  font-size: 2rem;
+  letter-spacing: 0.005em;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+
+  @each $breakpoint, $h3-size in $h3-sizes {
+    @include media-breakpoint-up($breakpoint, $grid-breakpoints) {
+      font-size: $h3-size;
+    }
+  }
+}
+
 .address p {
   margin: 0;
 }
@@ -228,7 +285,16 @@ $hr-displays: (
   sm: block,
   md: none,
   lg: none,
-  xl: none
+  xl: none,
+  xxl: none
+);
+
+$footer-h2-sizes: (
+  xxl: 2rem
+);
+
+$footer-p-sizes: (
+  xxl: 1.5rem
 );
 
 footer {
@@ -239,7 +305,7 @@ footer {
 
   hr {
     border: none;
-    border-bottom: #000 2px solid;
+    border-bottom: #fff 2px solid;
   }
 
   .d-sm-none {
@@ -249,10 +315,24 @@ footer {
       }
     }
   }
+  
+  h2 {
+	font-size: 1.5rem;
+	@each $breakpoint, $footer-h2-size in $footer-h2-sizes {
+      @include media-breakpoint-up($breakpoint, $grid-breakpoints) {
+        font-size: $footer-h2-size;
+      }
+    }  
+  }
 
   p {
     margin: 0;
     font-size: 1rem;
+    @each $breakpoint, $footer-p-size in $footer-p-sizes {
+      @include media-breakpoint-up($breakpoint, $grid-breakpoints) {
+        font-size: $footer-p-size;
+      }
+    }
   }
 
   .logo svg {
@@ -260,6 +340,18 @@ footer {
     height: auto;
   }
 }
+
+$footer-icon-sizes: (
+  xxl: 5rem
+);
+
+$footer-icon-text-sizes: (
+  xxl: 3rem
+);
+
+$footer-icon-margin-right-sizes: (
+  xxl: 1rem
+);
 
 ul.footer-list {
   list-style: none;
@@ -280,14 +372,33 @@ ul.footer-list {
       border-radius: 50%;
 
       font-size: 1.5rem;
+      
+      @each $breakpoint, $footer-icon-text-size in $footer-icon-text-sizes {
+      	@include media-breakpoint-up($breakpoint, $grid-breakpoints) {
+          font-size: $footer-icon-text-size;
+        }
+      }
+      
       width: 3rem;
       height: 3rem;
+      
+      @each $breakpoint, $footer-icon-size in $footer-icon-sizes {
+      	@include media-breakpoint-up($breakpoint, $grid-breakpoints) {
+          width: $footer-icon-size;
+          height: $footer-icon-size;
+        }
+      }
 
       display: flex;
       align-items: center;
       justify-content: center;
 
       margin-right: 0.5rem;
+      @each $breakpoint, $footer-icon-margin-right-size in $footer-icon-margin-right-sizes {
+      	@include media-breakpoint-up($breakpoint, $grid-breakpoints) {
+          margin-right: $footer-icon-margin-right-size;
+        }
+      }
 
       transition: all 0.3s ease-in-out;
     }
@@ -295,6 +406,12 @@ ul.footer-list {
     div {
       display: inline-block;
       text-decoration: underline;
+      
+      @each $breakpoint, $footer-p-size in $footer-p-sizes {
+	    @include media-breakpoint-up($breakpoint, $grid-breakpoints) {
+	      font-size: $footer-p-size;
+	    }
+      }
     }
   }
 
@@ -429,7 +546,24 @@ $artist-name-sizes: (
   sm: 3rem,
   md: 3rem,
   lg: 6rem,
-  xl: 6rem
+  xl: 6rem,
+  xxl: 8rem
+);
+
+$smaller-artist-name-sizes: (
+  sm: 3rem,
+  md: 3rem,
+  lg: 4rem,
+  xl: 4rem,
+  xxl: 6rem
+);
+
+$date-name-sizes: (
+  sm: 3rem,
+  md: 3rem,
+  lg: 4rem,
+  xl: 4rem,
+  xxl: 6rem
 );
 
 $artist-time-displays: (
@@ -439,7 +573,49 @@ $artist-time-displays: (
   xl: block
 );
 
-.artists {
+$lineup-col-max-widths: (
+  xl: 100%
+);
+$lineup-col-flexs: (
+  xl: 0 0 100%
+);
+
+$lineup-container-widths: (
+  xxl: 100%
+);
+$lineup-container-margins: (
+  xl: auto
+);
+
+.lineup, .where-what-fr-sa, .where-what-so {
+	.container {
+		@each $breakpoint, $lineup-container-width in $lineup-container-widths {
+	      @include media-breakpoint-up($breakpoint, $grid-breakpoints) {
+	        max-width: $lineup-container-width;
+	      }
+	    }
+	    @each $breakpoint, $lineup-container-margin in $lineup-container-margins {
+	      @include media-breakpoint-down($breakpoint, $grid-breakpoints) {
+	        margin-left: $lineup-container-margin;
+	        margin-right: $lineup-container-margin;
+	      }
+	    }
+	}
+	.col-6{
+		@each $breakpoint, $lineup-col-max-width in $lineup-col-max-widths {
+	      @include media-breakpoint-down($breakpoint, $grid-breakpoints) {
+	        max-width: $lineup-col-max-width;
+	      }
+	    }
+	    @each $breakpoint, $lineup-col-flex in $lineup-col-flexs {
+	      @include media-breakpoint-down($breakpoint, $grid-breakpoints) {
+	        flex: $lineup-col-flex;
+	      }
+	    }
+	}
+}
+
+.artists, .activities {
   @extend .anton;
 
   padding-top: 2rem;
@@ -450,6 +626,10 @@ $artist-time-displays: (
     justify-content: center;
     align-items: center;
   }
+  
+  .tier-1, .tier-2, .tier-3, .tier-4{
+	  margin-bottom: 3rem;
+  }
 
   .tier-1 {
     font-size: 3rem;
@@ -459,14 +639,13 @@ $artist-time-displays: (
       }
     }
   }
-  .tier-2 {
+  .tier-2, .tier-3, .tier-4 {
     font-size: 3rem;
-  }
-  .tier-3 {
-    font-size: 3rem;
-  }
-  .tier-4 {
-    font-size: 3rem;
+    @each $breakpoint, $smaller-artist-name-size in $smaller-artist-name-sizes {
+      @include media-breakpoint-up($breakpoint, $grid-breakpoints) {
+        font-size: $smaller-artist-name-size;
+      }
+    }
   }
   
   .date {
@@ -474,15 +653,26 @@ $artist-time-displays: (
 	  margin-bottom: 1rem;
 	  
 	  font-size: 3rem;
+	  
+	  @each $breakpoint, $date-name-size in $date-name-sizes {
+        @include media-breakpoint-up($breakpoint, $grid-breakpoints) {
+          font-size: $date-name-size;
+        }
+      }
+    
 	  white-space: nowrap;
 	  word-break: keep-all;
 	  text-stroke: 1.5px #fff;
 	  -webkit-text-stroke: 1.5px #fff;
 	  color: transparent;
+	  
+	  img.emoji {
+		  margin-left: 1rem !important;
+	  }
   }
 
-  .artist {
-    padding: 0 1.25rem;
+  .artist, .activity {
+    padding: 1rem;
     display: inline-block;
     color: #fff;
     text-align: center;
@@ -506,22 +696,15 @@ $artist-time-displays: (
     }
       
     & > small {
-	    font-size: 2rem;
-	    margin-left: 0.5rem;
+	    font-size: 0.75em;
 	    white-space: nowrap;
 	    word-break: keep-all;
 	    text-stroke: 1.5px #fff;
 	    -webkit-text-stroke: 1.5px #fff;
 	    color: transparent;
 	    
-	    display: none;
-	    
-	    @each $breakpoint, $artist-time-display in $artist-time-displays {
-	      @include media-breakpoint-up($breakpoint, $grid-breakpoints) {
-	        display: $artist-time-display;
-	      }
-	    }
-    }
+	    display: block;
+	}
   }
 }
 
@@ -536,13 +719,6 @@ $h2-positions: (
   xl: absolute
 );
 
-$map-paddings: (
-  sm: 2rem,
-  md: 4rem,
-  lg: 5rem,
-  xl: 6rem
-);
-
 $map-scalings: (
   sm: 2,
   md: 1,
@@ -551,24 +727,29 @@ $map-scalings: (
 );
 
 .map {
-  @each $breakpoint, $map-padding in $map-paddings {
-    @include media-breakpoint-up($breakpoint, $grid-breakpoints) {
-      padding-top: $map-padding;
-    }
-  }
-
+  position: relative;
   background-color: #5E17EB;
   overflow: hidden;
+  
+  padding-top: 4rem;
 
   .title {
-    padding-top: 3rem;
     position: relative;
     color: #fff;
     z-index: 1;
+    
+    h2 {
+	    margin-bottom: 0;
+    }
+    
+    u {
+	    display: inline-block;
+    }
 
     @each $breakpoint, $h2-position in $h2-positions {
       @include media-breakpoint-up($breakpoint, $grid-breakpoints) {
         position: $h2-position;
+        top: 0;
       }
     }
   }
@@ -585,18 +766,36 @@ $map-scalings: (
   }
 }
 
-.help {
-  color: #fff;
-  background-color: #dd1e1c;
+.map-link, .map-link:hover {
+	text-decoration: none;
+}
 
-  a {
-    color: #fff;
-  }
+.where-what-fr-sa, .where-what-so {
+	position: relative;
+	background-color: #7ED957;
+	color: #fff;
+	z-index: 0;
+	padding-bottom: 2rem;
+	  
+	.container{
+		margin-left: auto;
+		margin-right: auto;
+	}
+}
 
-  p {
-    margin-bottom: 0;
-    padding-bottom: 2rem;
-  }
+.where-what-so {
+	background-color: #FF00B0;
+}
+
+.programm {
+	background-color: #5E17EB;
+	color: #fff;
+	padding-bottom: 2rem;
+	
+	.container {
+		margin-left: auto;
+		margin-right: auto;
+	}
 }
 
 #color-background {
@@ -736,6 +935,10 @@ $date-sizes: (
 	}
 }
 
+$press-h3-sizes: (
+  xxl: 3rem
+);
+
 .press-articles {
 	& > a {
 		display: block;
@@ -744,6 +947,51 @@ $date-sizes: (
 	h3 {
 		font-size: 2rem;
 		margin-bottom: 0.5rem;
+		
+		@each $breakpoint, $press-h3-size in $press-h3-sizes {
+          @include media-breakpoint-up($breakpoint, $grid-breakpoints) {
+            font-size: $press-h3-size;
+          }
+        }
+	}
+}
+
+#family-day {
+	margin-top: 3rem;
+}
+
+.family-day-info{
+	margin-top: 2rem;
+}
+
+.table {
+	
+	margin-bottom: 1rem;
+	
+	td {
+		padding: 0.5rem 0;
+		vertical-align: top;
+		
+		&:first-child{
+			padding-right: 3rem;
+			
+			@extend .anton;
+			text-transform: uppercase;
+		}
+	}
+	
+	ul {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+	}
+	
+	li {
+		padding: 0.25rem 0;
+	}
+	
+	a {
+		color: #fff;
 	}
 }
 
