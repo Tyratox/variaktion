@@ -120,10 +120,14 @@ $pageId = get_the_ID();
 <?php echo file_get_contents(locate_template("img/info-end.svg")); ?>
 
 <section id="wo-was" class="where-what-fr-sa">
-	
-	<div class="container row">
+	<div class="container">
 		<h2 class="h2">Was</h2>
 		
+		<div>
+			<?php echo apply_filters('the_content', get_the_content(null, false, 147)); ?>
+		</div>
+	</div>
+	<div class="container row">
         <div class="activities">
 			<div class='date'>Freitag & Samstag</div>
 			<div class='row tier-2'>

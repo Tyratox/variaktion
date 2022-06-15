@@ -876,6 +876,14 @@
       "oO" : 0,
       "oS" : 1
     },
+    "\/page-empty.php" : {
+      "cB" : 0,
+      "ft" : 8192,
+      "hM" : 0,
+      "oA" : 0,
+      "oAP" : "\/page-empty.php",
+      "oF" : 0
+    },
     "\/page.php" : {
       "cB" : 0,
       "ft" : 8192,
