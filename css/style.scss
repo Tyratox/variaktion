@@ -257,11 +257,11 @@ $h2-sizes: (
 }
 
 $h3-sizes: (
-  sm: 2rem,
-  md: 3rem,
-  lg: 4rem,
-  xl: 4.5rem,
-  xxl: 5rem
+  sm: 1.5rem,
+  md: 2rem,
+  lg: 3rem,
+  xl: 4rem,
+  xxl: 4.5rem
 );
 
 .h3 {
@@ -583,11 +583,14 @@ $lineup-col-flexs: (
 $lineup-container-widths: (
   xxl: 100%
 );
+$lineup-container-display: (
+  xxl: flex
+);
 $lineup-container-margins: (
   xl: auto
 );
 
-.lineup, .where-what-fr-sa, .where-what-so {
+.lineup {
 	.container {
 		@each $breakpoint, $lineup-container-width in $lineup-container-widths {
 	      @include media-breakpoint-up($breakpoint, $grid-breakpoints) {
@@ -598,6 +601,11 @@ $lineup-container-margins: (
 	      @include media-breakpoint-down($breakpoint, $grid-breakpoints) {
 	        margin-left: $lineup-container-margin;
 	        margin-right: $lineup-container-margin;
+	      }
+	    }
+	    @each $breakpoint, $lineup-container-display in $lineup-container-display {
+	      @include media-breakpoint-up($breakpoint, $grid-breakpoints) {
+		    display: $lineup-container-display;
 	      }
 	    }
 	}
@@ -615,10 +623,16 @@ $lineup-container-margins: (
 	}
 }
 
+.activities {
+	padding-top: 2rem;
+	
+	.date {
+		margin-top: 3rem;
+	}
+}
+
 .artists, .activities {
   @extend .anton;
-
-  padding-top: 2rem;
 
   & > div {
     display: flex;
@@ -649,7 +663,6 @@ $lineup-container-margins: (
   }
   
   .date {
-	  margin-top: 3rem;
 	  margin-bottom: 1rem;
 	  
 	  font-size: 3rem;
@@ -670,9 +683,13 @@ $lineup-container-margins: (
 		  margin-left: 1rem !important;
 	  }
   }
+  
+  .activity {
+	  padding: 1rem !important;
+  }
 
   .artist, .activity {
-    padding: 1rem;
+	padding: 0 1rem;
     display: inline-block;
     color: #fff;
     text-align: center;
@@ -774,6 +791,12 @@ $map-scalings: (
 	position: relative;
 	background-color: #7ED957;
 	color: #fff;
+	
+	a {
+		color: #fff;
+		display: inline-block;
+	}
+	
 	z-index: 0;
 	padding-bottom: 2rem;
 	  
@@ -791,6 +814,11 @@ $map-scalings: (
 	background-color: #5E17EB;
 	color: #fff;
 	padding-bottom: 2rem;
+	
+	a {
+		color: #fff;
+		display: inline-block;
+	}
 	
 	.container {
 		margin-left: auto;
@@ -977,6 +1005,8 @@ $press-h3-sizes: (
 			
 			@extend .anton;
 			text-transform: uppercase;
+			word-break: keep-all;
+			white-space: nowrap;
 		}
 	}
 	

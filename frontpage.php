@@ -30,41 +30,63 @@ $pageId = get_the_ID();
 <section id="lineup" class="lineup">
 	<div id="lineup-background"></div>
 	<div id="lineup-bbackground"></div>
-    <div class="container row">
-	    <div class="artists col-6">
-		    <div class='date'>Lineup</div>
-		    <div class='row tier-1'>
-				<a class='artist' href="https://www.instagram.com/sensu/" target="_blank">
-					<span>Sensu</span>
-				</a>
-				<a class='artist' href="https://www.instagram.com/palma_ada_/" target="_blank">
-					<span>Palma Ada</span>
-				</a>
-				<a class='artist' href="https://www.instagram.com/naomi_lareine/" target="_blank">
-					<span>Naomi Lareine</span>
-				</a>
-		    </div>
-		    <div class='row tier-2'>
-				<a class='artist' href="https://www.instagram.com/caachiiita/" target="_blank">
-					<span>Cachita</span>
-				</a>
-				<a class='artist' href="https://www.instagram.com/pato.music/" target="_blank">
-					<span>Pato</span>
-				</a>
-				<a class='artist' href="https://www.instagram.com/sansmattia/" target="_blank">
-					<span>San Mattia</span>
-				</a>
-				<a class='artist' href="https://www.instagram.com/nola__kin/" target="_blank">
-					<span>Nola Kin</span>
-				</a>
-				<a class='artist' href="https://www.instagram.com/meldaymusic/" target="_blank">
-					<span>Melday</span>
-				</a>
-				<a class='artist' href="https://www.instagram.com/m_s_crew_official/" target="_blank">
-					<span>M's Crew</span>
-				</a>
-		    </div>
-	    </div>
+    <div class="container">
+        <div class="artists col-6">
+            <?php
+	            
+	        $dates = array('friday' => array('name' => 'freitag'), 'saturday' => array('name' => 'samstag'));
+
+            function acts_by_category_date($category, $date){
+                $query = new WP_Query(array(
+                    "post_type" => "act",
+                    "posts_per_page" => -1,
+                    'tax_query' => array(
+                        array(
+                            'taxonomy' => 'act_category',
+                            'field' => 'slug',
+                            'terms' => $category,
+                        ),
+                        array(
+                            'taxonomy' => 'act_date',
+                            'field' => 'slug',
+                            'terms' => $date,
+                        )
+                    ),
+                ));
+
+                return $query->posts;
+            }
+
+            $slugs = array('tier-1' => array(
+                'tier' => 1,
+            ), 'tier-2' => array(
+                'tier' => 2
+            ));
+            
+            foreach($dates as $date => $dv){
+	            
+	            echo "<div class='date'>" . $dv['name'] . "</div>";
+	            
+	            foreach($slugs as $slug => $v) {
+	                echo "<div class='row tier-" . $v['tier'] . "'>";
+	                foreach(acts_by_category_date($slug, $date) as $post) {
+	                    $origin = get_field('origin', $post->ID);
+	                    $time = get_field('time', $post->ID);
+	                    $link = get_field('link', $post->ID);
+	                    
+	                    if(empty($link)){
+		                    echo "<div class='artist'><span>" . $post->post_title . "</span><wbr><small>" . $time . "</small>" . "</div>";
+	                    }else{
+		                    echo "<a class='artist' href='" . $link . "' target='_blank'><span>" . $post->post_title . "</span><wbr><small>" . $time . "</small>" . "</a>";
+	                    }
+	                }
+	                echo "</div>";
+	            }
+            }
+
+
+            ?>
+        </div>
 	    <div class="artists col-6">
 		    <div class='date'>hör rein 🎧🔥</div>
             <iframe
@@ -88,7 +110,7 @@ $pageId = get_the_ID();
     <div class="container">
         <div class="title">
             <h2 class="h2">Wo</h2>
-            <p>Die Veranstaltung findet auf der <u class="pulse">Pontonirwiese in Aarau</u> statt.</p>
+            <p>Die Veranstaltung findet auf der <u class="pulse">Pontonierwiese in Aarau</u> statt.</p>
         </div>
     </div>
     <?php echo file_get_contents(locate_template("img/map.svg")); ?>
@@ -102,7 +124,7 @@ $pageId = get_the_ID();
 	<div class="container row">
 		<h2 class="h2">Was</h2>
 		
-        <div class="activities col-6">
+        <div class="activities">
 			<div class='date'>Freitag & Samstag</div>
 			<div class='row tier-2'>
 				<div class='activity'>
@@ -150,11 +172,11 @@ $pageId = get_the_ID();
 	</div>
 </section>
 
-<?php echo file_get_contents(locate_template("img/support-end.svg")); ?>
+<?php echo file_get_contents(locate_template("img/what-end.svg")); ?>
 
-<section id="wo-was" class="where-what-so">
+<?php /*<section id="wo-was" class="where-what-so">
 	<div class="container row">
-        <div class="activities col-6">
+        <div class="activities">
 			<div class='date'>Sonntag (Familientag)</div>
 			<div class='row tier-2'>
 				<div class='activity'>
@@ -186,14 +208,18 @@ $pageId = get_the_ID();
 	</div>
 </section>
 
-<?php echo file_get_contents(locate_template("img/where-what-end.svg")); ?>
+<?php echo file_get_contents(locate_template("img/where-what-end.svg")); ?>*/ ?>
 
 <section id="programm" class="programm">
 	<div class="container row">
         <div id="family-day">
 	        
 	        <div class="title">
-	            <h2 class="h2">Freitag, 17.</h3>
+	            <h2 class="h2">Programm</h3>
+	        </div>
+	        
+	        <div class="title">
+	            <h3 class="h3">Freitag, 17.</h3>
 	        </div>
 	        
 	        <table class="table">
@@ -205,40 +231,27 @@ $pageId = get_the_ID();
 					   </td>
 				   </tr> 
 				   <tr>
-					   <td>18:00-19:00</td>
+					   <td>18:00-22:00</td>
 					   <td>
-						   San Mattia
-					   </td>
-				   </tr>
-				   <tr>
-					   <td>19:00-20:00</td>
-					   <td>
-						   Pato
-					   </td>
-				   </tr>
-				   <tr>
-					   <td>20:00-21:00</td>
-					   <td>
-						   Cachita
-					   </td>
-				   </tr>
-				   <tr>
-					   <td>21:00-22:00</td>
-					   <td>
-						   Naomi Lareine
+						   🎵 Konzerte, siehe <a class="pulse" href="#lineup">Lineup</a>
 					   </td>
 				   </tr>
 				   <tr>
 					   <td>22:00-04:00</td>
 					   <td>
-						   🪩 <span class="anton">DUNSTCHREIS</span> (New Wave HipHop): Variaktion Afterparty im Flösserplatz
+						   <p>🪩 <span class="anton">DUNSTCHREIS</span> (New Wave HipHop): Variaktion Afterparty im Flösserplatz</p>		    
+						    <p>🔗
+							    <a class="pulse" href="https://floesserplatz.ch/programm/2022/juni/dunstchreis-new-wave-hiphop" target="_blank">Mehr Infos</a>,
+							    <a class="pulse" href="https://eventfrog.ch/de/p/party/hip-hop-rap/dunstchreis-new-wave-hiphop-6931927764988513677.html" target="_blank">Tickets</a>
+						    </p>
+						   
 					   </td>
 				   </tr>
 			    </tbody>
 		    </table>
 	        
 	        <div class="title">
-	            <h2 class="h2">Samstag, 17.</h3>
+	            <h3 class="h3">Samstag, 18.</h3>
 	        </div>
 	        
 	        <table class="table">
@@ -256,46 +269,26 @@ $pageId = get_the_ID();
 					   </td>
 				   </tr>
 				   <tr>
-					   <td>18:00-19:00</td>
+					   <td>18:00-23:00</td>
 					   <td>
-						   M's Crew
-					   </td>
-				   </tr>
-				   <tr>
-					   <td>19:00-20:00</td>
-					   <td>
-						   Melday
-					   </td>
-				   </tr>
-				   <tr>
-					   <td>20:00-21:00</td>
-					   <td>
-						   Nola Kin
-					   </td>
-				   </tr>
-				   <tr>
-					   <td>21:00-22:00</td>
-					   <td>
-						   Palma Ada
-					   </td>
-				   </tr>
-				   <tr>
-					   <td>22:00-23:00</td>
-					   <td>
-						   Sensu
+						   🎵 Konzerte, siehe <a class="pulse" href="#lineup">Lineup</a>
 					   </td>
 				   </tr>
 				   <tr>
 					   <td>22:00-04:00</td>
 					   <td>
-						   🪩 <span class="anton">DUNSTCHREIS</span> (Techno - Tech House - DnB): Variaktion Afterparty im Flösserplatz
+						   <p>🪩 <span class="anton">DUNSTCHREIS</span> (Techno - Tech House - DnB): Variaktion Afterparty im Flösserplatz</p>
+						   <p>🔗
+							   <a class="pulse" href="https://floesserplatz.ch/programm/2022/juni/dunstchreis-techno-techhouse-dnb" target="_blank">Mehr Infos</a>,
+							   <a class="pulse" href="https://eventfrog.ch/de/p/party/house-techno/dunstchreis-techno-techhouse-dnb-6931929129852755825.html" target="_blank">Tickets</a>
+						    </p>
 					   </td>
 				   </tr>
 			    </tbody>
 		    </table>
 	        
 	        <div class="title">
-	            <h2 class="h2">Sonntag, 19.</h3>
+	            <h3 class="h3">Sonntag, 19.</h3>
 	        </div>
 	        
 	        <p>Organisiert und koordiniert durch die Kirchen und Kinderförderung Aarau gibt es am Familientag folgendes Angebot: Kaffee- und Kuchenauswahl durch die Katholische Kirche Aarau, JARA Hotdogstand,Crêpes von Rolling Bistro, Flössi-Bar mit Softgetränken, Schlangenbrote über dem Feuer mit der Pfadi St. Georg, Knipsbox, DIY Bändeli knüpfen,
