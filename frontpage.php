@@ -88,7 +88,10 @@ $pageId = get_the_ID();
             ?>
         </div>
 	    <div class="artists col-6">
-		    <div class='date'>hör rein 🎧🔥</div>
+		    <div>
+				<?php echo apply_filters('the_content', get_the_content(null, false, 174)); ?>
+			</div>
+		    <?php /*<div class='date'>hör rein 🎧🔥</div>
             <iframe
             	class="spotify-player"
             	style="border-radius:12px"
@@ -97,7 +100,7 @@ $pageId = get_the_ID();
             	height="380"
             	frameBorder="0"
             	allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-            ></iframe>
+            ></iframe> */ ?>
         </div>
     </div>
 </section>
@@ -120,13 +123,6 @@ $pageId = get_the_ID();
 <?php echo file_get_contents(locate_template("img/info-end.svg")); ?>
 
 <section id="wo-was" class="where-what-fr-sa">
-	<div class="container">
-		<h2 class="h2">Was</h2>
-		
-		<div>
-			<?php echo apply_filters('the_content', get_the_content(null, false, 147)); ?>
-		</div>
-	</div>
 	<div class="container row">
         <div class="activities">
 			<div class='date'>Freitag & Samstag</div>
@@ -405,7 +401,7 @@ Stand der Stadtbibliothek Aarau mit Büchern und Roboter, diverses Spielmaterial
 				$query = new WP_Query(array(
 		            "post_type" => "press-article",
 		            "posts_per_page" => -1,
-		            "order" => "ASC",
+		            "order" => "DESC",
 		            "orderby" => "date"
 		        ));
 		
