@@ -1,10 +1,10 @@
 <?php
 
 /*
- * Template Name: Frontpage
+ * Template Name: Frontpage 2022 (farbig)
  */
 
-get_header("banner");
+get_template_part("header/2022-color/header", "banner");
 
 the_post();
 
@@ -25,7 +25,7 @@ $pageId = get_the_ID();
     </div>
 </section>
 
-<?php get_header("nav"); ?>
+<?php get_template_part("header/2022-color/header", "nav"); ?>
 
 <section id="lineup" class="lineup">
 	<div id="lineup-background"></div>
@@ -50,7 +50,12 @@ $pageId = get_the_ID();
                             'taxonomy' => 'act_date',
                             'field' => 'slug',
                             'terms' => $date,
-                        )
+                        ),
+                        array(
+		                    'taxonomy' => 'variaktion_year',
+		                    'field' => 'slug',
+		                    'terms' => '2022',
+		                )
                     ),
                 ));
 
@@ -402,7 +407,14 @@ Stand der Stadtbibliothek Aarau mit Büchern und Roboter, diverses Spielmaterial
 		            "post_type" => "press-article",
 		            "posts_per_page" => -1,
 		            "order" => "DESC",
-		            "orderby" => "date"
+		            "orderby" => "date",
+		            'tax_query' => array(
+		                array(
+		                    'taxonomy' => 'variaktion_year',
+		                    'field' => 'slug',
+		                    'terms' => '2022',
+		                )
+		            ),
 		        ));
 		
 		        foreach($query->posts as $post){
@@ -447,6 +459,11 @@ Stand der Stadtbibliothek Aarau mit Büchern und Roboter, diverses Spielmaterial
                     'taxonomy' => 'sponsor_category',
                     'field' => 'slug',
                     'terms' => $slug,
+                ),
+                array(
+                    'taxonomy' => 'variaktion_year',
+                    'field' => 'slug',
+                    'terms' => '2022',
                 )
             ),
         ));

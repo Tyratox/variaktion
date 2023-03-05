@@ -1,0 +1,637 @@
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1921px
+);
+
+$container-max-widths: (
+  sm: 540px,
+  md: 720px,
+  lg: 960px,
+  xl: 1140px,
+  xxl: 1300px
+);
+
+@import "animation";
+@import "fonts";
+@import "input";
+@import "../node_modules/bootstrap/scss/functions";
+@import "../node_modules/bootstrap/scss/variables";
+@import "../node_modules/bootstrap/scss/mixins";
+@import "../node_modules/bootstrap/scss/reboot";
+@import "../node_modules/bootstrap/scss/grid";
+
+$fa-font-path: "../font";
+@import "../node_modules/@fortawesome/fontawesome-free/scss/brands.scss";
+@import "../node_modules/@fortawesome/fontawesome-free/scss/solid.scss";
+@import "../node_modules/@fortawesome/fontawesome-free/scss/fontawesome.scss";
+
+html,
+body {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  line-height: 1.25;
+  font-size: 16px;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @extend .anton;
+  margin: 0;
+}
+
+a {
+  color: #000;
+  text-decoration: underline;
+}
+
+a:hover {
+  color: #000;
+  // @extend .pulse;
+  &:hover{
+	  text-decoration: underline;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+hr {
+	border: none;
+	border-top: #fff 3px solid;
+	margin-bottom: 1rem;
+}
+
+$font-sizes: (
+  sm: 1.25rem,
+  md: 1.5rem,
+  lg: 1.5rem,
+  xl: 1.5rem,
+  xxl: 2rem
+);
+
+p,
+div.input input,
+div.acf-comment-fields .acf-field input,
+div.input textarea,
+div.acf-comment-fields .acf-field textarea,
+.table {
+  font-size: 1.25rem;
+  @each $breakpoint, $font-size in $font-sizes {
+    @include media-breakpoint-up($breakpoint, $grid-breakpoints) {
+      font-size: $font-size;
+    }
+  }
+}
+
+header {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 6rem;
+
+  margin-top: 2rem;
+
+  .container {
+    height: 100%;
+  }
+
+  .row {
+    align-items: center;
+    height: 100%;
+
+    & > div {
+      height: 100%;
+    }
+
+    svg {
+      max-width: 100%;
+      height: 100%;
+      width: auto;
+    }
+  }
+}
+
+.header-row {
+	div:last-child svg {
+		margin-left: auto;
+		display: block;
+	}
+}
+
+$nav-sizes: (
+  sm: 1.5rem,
+  md: 1.5rem,
+  lg: 2rem,
+  xl: 2rem,
+  xxl: 3rem
+);
+
+$nav-heights: (
+  sm: 4rem,
+  md: 4rem,
+  lg: 4rem,
+  xl: 5rem,
+  xxl: 6rem
+);
+
+nav {
+  @extend .anton;
+
+  font-size: 1.25rem;
+  @each $breakpoint, $nav-size in $nav-sizes {
+    @include media-breakpoint-up($breakpoint, $grid-breakpoints) {
+      font-size: $nav-size;
+    }
+  }
+
+  background-color: #fff;
+
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+
+  padding: 0.5rem 0;
+  border-top: #000 3px solid;
+  border-bottom: #000 3px solid;
+  
+  z-index: 999999;
+  
+  /* fix positioning */
+  height: 4rem;
+  margin-top: -4rem;
+  @each $breakpoint, $nav-height in $nav-heights {
+    @include media-breakpoint-up($breakpoint, $grid-breakpoints) {
+      height: $nav-height;
+	  margin-top: -$nav-height;
+    }
+  }
+  
+  display: flex;
+  justify-content: center;
+  
+  .container {
+	  display: flex;
+  }
+
+  .nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    
+    width: 100%;
+
+    a {
+      border: none;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    div {
+      padding: 0 0.5rem;
+      
+      &:first-child{
+	      padding-left: 0;
+      }
+      &:last-child{
+	      padding-right: 0;
+      }
+    }
+  }
+}
+
+.flex-spacer {
+  flex-grow: 1;
+}
+
+.anton {
+  text-transform: uppercase;
+  font-family: "Anton", sans-serif;
+  font-weight: 400;
+  letter-spacing: 0.005em;
+}
+
+.variaktion {
+  @extend .anton;
+  margin: 0;
+}
+
+.variaktion span {
+  display: inline-block;
+  transform: rotateZ(900deg);
+  transition: all 1s ease-in-out;
+}
+
+.variaktion:hover span {
+  transform: rotateY(0deg);
+}
+
+$h2-sizes: (
+  sm: 3rem,
+  md: 4rem,
+  lg: 5rem,
+  xl: 5.8rem,
+  xxl: 6.5rem
+);
+
+.h2 {
+  font-size: 2.5rem;
+  letter-spacing: 0.005em;
+  text-transform: uppercase;
+  margin-bottom: 2rem;
+
+  @each $breakpoint, $h2-size in $h2-sizes {
+    @include media-breakpoint-up($breakpoint, $grid-breakpoints) {
+      font-size: $h2-size;
+    }
+  }
+}
+
+$h3-sizes: (
+  sm: 1.5rem,
+  md: 2rem,
+  lg: 3rem,
+  xl: 4rem,
+  xxl: 4.5rem
+);
+
+.h3 {
+  font-size: 2rem;
+  letter-spacing: 0.005em;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+
+  @each $breakpoint, $h3-size in $h3-sizes {
+    @include media-breakpoint-up($breakpoint, $grid-breakpoints) {
+      font-size: $h3-size;
+    }
+  }
+}
+
+.address p {
+  margin: 0;
+}
+
+$hr-displays: (
+  sm: block,
+  md: none,
+  lg: none,
+  xl: none,
+  xxl: none
+);
+
+$footer-h2-sizes: (
+  xxl: 2rem
+);
+
+$footer-p-sizes: (
+  xxl: 1.5rem
+);
+
+footer {
+  border-top: #fff 3px solid;
+  background-color: #000;
+  color: #fff;
+  padding: 2rem 0;
+
+  hr {
+    border: none;
+    border-bottom: #fff 2px solid;
+  }
+
+  .d-sm-none {
+    @each $breakpoint, $hr-display in $hr-displays {
+      @include media-breakpoint-up($breakpoint, $grid-breakpoints) {
+        display: $hr-display;
+      }
+    }
+  }
+  
+  h2 {
+	font-size: 1.5rem;
+	@each $breakpoint, $footer-h2-size in $footer-h2-sizes {
+      @include media-breakpoint-up($breakpoint, $grid-breakpoints) {
+        font-size: $footer-h2-size;
+      }
+    }  
+  }
+
+  p {
+    margin: 0;
+    font-size: 1rem;
+    @each $breakpoint, $footer-p-size in $footer-p-sizes {
+      @include media-breakpoint-up($breakpoint, $grid-breakpoints) {
+        font-size: $footer-p-size;
+      }
+    }
+  }
+
+  .logo svg {
+    width: 70%;
+    height: auto;
+  }
+}
+
+$footer-icon-sizes: (
+  xxl: 5rem
+);
+
+$footer-icon-text-sizes: (
+  xxl: 3rem
+);
+
+$footer-icon-margin-right-sizes: (
+  xxl: 1rem
+);
+
+ul.footer-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  li > a {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+    border-bottom: none;
+    text-decoration: none !important;
+    color: #fff;
+
+    i {
+      color: #fff;
+      border: #fff 2px solid;
+      border-radius: 50%;
+
+      font-size: 1.5rem;
+      
+      @each $breakpoint, $footer-icon-text-size in $footer-icon-text-sizes {
+      	@include media-breakpoint-up($breakpoint, $grid-breakpoints) {
+          font-size: $footer-icon-text-size;
+        }
+      }
+      
+      width: 3rem;
+      height: 3rem;
+      
+      @each $breakpoint, $footer-icon-size in $footer-icon-sizes {
+      	@include media-breakpoint-up($breakpoint, $grid-breakpoints) {
+          width: $footer-icon-size;
+          height: $footer-icon-size;
+        }
+      }
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      margin-right: 0.5rem;
+      @each $breakpoint, $footer-icon-margin-right-size in $footer-icon-margin-right-sizes {
+      	@include media-breakpoint-up($breakpoint, $grid-breakpoints) {
+          margin-right: $footer-icon-margin-right-size;
+        }
+      }
+
+      transition: all 0.3s ease-in-out;
+    }
+
+    div {
+      display: inline-block;
+      text-decoration: underline;
+      
+      @each $breakpoint, $footer-p-size in $footer-p-sizes {
+	    @include media-breakpoint-up($breakpoint, $grid-breakpoints) {
+	      font-size: $footer-p-size;
+	    }
+      }
+    }
+  }
+
+  li > a:hover {
+    i {
+      background-color: #fff;
+      color: #000;
+    }
+    span {
+      text-decoration: underline;
+    }
+  }
+}
+
+$logo-heights: (
+  sm: 15rem,
+  md: 25rem,
+  lg: 35rem,
+  xl: 60vh
+);
+
+#particles {
+	padding: 0;
+}
+
+.spray-logo {
+  position: relative;
+
+  overflow: hidden;
+  height: 100vh;
+  
+  /* Avoid Chrome to see Safari hack */
+  @supports (-webkit-touch-callout: none) {
+    height: -webkit-fill-available; /* https://allthingssmitty.com/2020/05/11/css-fix-for-100vh-in-mobile-webkit/ */
+  }
+  
+  /* height: calc(100vh - 3.875rem); */
+
+  svg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -40%);
+    overflow: visible;
+
+    transition: all 0.3s ease-in-out;
+
+    height: 12.5rem;
+    width: auto;
+
+    @each $breakpoint, $logo-height in $logo-heights {
+      @include media-breakpoint-up($breakpoint, $grid-breakpoints) {
+        height: $logo-height;
+      }
+    }
+  }
+}
+
+.clip-v {
+  clip-path: polygon(
+    24.28930627% 100%,
+    0% 0%,
+    37.26388496% 0%,
+    51.35696191% 68.0232558%,
+    63.8841414% 0%,
+    100% 0%,
+    76.85872028% 100%
+  );
+}
+
+.clip-a {
+  clip-path: polygon(
+    0 100%,
+    18.20346296% 0%,
+    82.02524265% 0%,
+    100% 100%,
+    64.26041748% 100%,
+    61.62859137% 84%,
+    38.81943312% 84%,
+    36.62624472% 100%,
+    0 100%,
+    41.67057781% 68.0696158%,
+    58.77744668% 68.0696158%,
+    50.44333101% 17.1965076%,
+    48.68878052% 17.1965076%,
+    41.67057781% 68.0696158%
+  );
+}
+
+section {
+	padding: 2rem 0;
+}
+
+
+.sponsors {
+  font-size: 1.5rem;
+  
+  background-color: #fff;
+  color: #000;
+
+  .row {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    align-items: center;
+  }
+
+  .logos {
+    display: flex;
+    flex-wrap: wrap;
+
+    justify-content: flex-start;
+    margin-bottom: 2rem;
+
+    a {
+      height: 9rem;
+      padding: 4rem 4rem 0 0;
+      display: block;
+
+      &:hover {
+        animation: none;
+      }
+
+      &:first-child {
+        padding-left: 0;
+      }
+
+      &::last-child {
+        padding-right: 0;
+      }
+    }
+  }
+
+  svg,
+  img {
+    width: auto;
+    max-width: 100%;
+    height: 100%;
+  }
+}
+
+#press {
+	background-color: #000;
+	color: #fff;
+	
+	a {
+		color: #fff;
+	}
+}
+
+$press-h3-sizes: (
+  xxl: 3rem
+);
+
+.press-articles {
+	& > a {
+		display: block;
+		text-decoration: none;
+		padding-bottom: 4rem;
+	}
+	h3 {
+		font-size: 2rem;
+		margin-bottom: 0.5rem;
+		
+		@each $breakpoint, $press-h3-size in $press-h3-sizes {
+          @include media-breakpoint-up($breakpoint, $grid-breakpoints) {
+            font-size: $press-h3-size;
+          }
+        }
+	}
+}
+
+.previous-years {
+	background-color: #000;
+	color: #fff;
+	
+	a {
+		color: #fff;
+	}
+	
+	ul {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+		
+		font-size: 2rem;
+		@extend .anton;
+		
+		li {
+			&:before {
+				content: "–";
+				padding-right: 1rem;
+			}
+		}
+	}
+}
+
+.page {
+  padding-top: 1rem;
+}
+
+.page-design-negative {
+  color: #fff;
+  .page-content a {
+    color: #fff;
+  }
+}
+
+.page-heading {
+  padding-top: 16rem;
+}
+
+.page-content {
+  margin-bottom: 5rem;
+}
+
+.wp-block-gallery {
+	display: flex;
+	flex-wrap: wrap;
+}

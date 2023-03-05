@@ -1,8 +1,10 @@
 <?php
 
 /*
- * Template Name: Leere Seite
+ * Template Name: Leere Seite (2022)
  */
+ 
+wp_enqueue_style('primary-2022-color');
 
 the_post();
 

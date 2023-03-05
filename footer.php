@@ -17,11 +17,6 @@
                         </a>
                     </li>
                     <li>
-                        <a href="https://facebook.com/variaktion" target="_blank"><i class="fab fa-facebook-f"></i>
-                            <div><span>Facebook</span></div>
-                        </a>
-                    </li>
-                    <li>
                         <a href="/info" target="_blank"><i class="fa fa-info"></i>
                             <div><span>Infos und Impressum</span></div>
                         </a>

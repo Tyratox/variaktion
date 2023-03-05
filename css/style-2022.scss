@@ -1045,3 +1045,8 @@ $press-h3-sizes: (
 .page-content {
   margin-bottom: 5rem;
 }
+
+.wp-block-gallery {
+	display: flex;
+	flex-wrap: wrap;
+}

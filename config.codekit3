@@ -138,7 +138,7 @@
       "pg" : 0,
       "sct" : 1
     },
-    "\/css\/style.css" : {
+    "\/css\/style-2022.css" : {
       "aP" : 1,
       "bl" : 0,
       "ci" : 0,
@@ -146,19 +146,19 @@
       "ft" : 16,
       "ma" : 0,
       "oA" : 0,
-      "oAP" : "\/css\/style-min.css",
+      "oAP" : "\/css\/style-2022-min.css",
       "oF" : 0,
       "pg" : 0
     },
-    "\/css\/style.css.map" : {
+    "\/css\/style-2022.css.map" : {
       "cB" : 0,
       "ft" : 8192,
       "hM" : 0,
       "oA" : 0,
-      "oAP" : "\/css\/style.css.map",
+      "oAP" : "\/css\/style-2022.css.map",
       "oF" : 0
     },
-    "\/css\/style.scss" : {
+    "\/css\/style-2022.scss" : {
       "aP" : 1,
       "bl" : 0,
       "co" : 0,
@@ -167,7 +167,42 @@
       "ft" : 4,
       "ma" : 1,
       "oA" : 0,
-      "oAP" : "\/css\/style.css",
+      "oAP" : "\/css\/style-2022.css",
+      "oF" : 0,
+      "oS" : 3,
+      "pg" : 0,
+      "sct" : 1
+    },
+    "\/css\/style-2023.css" : {
+      "aP" : 1,
+      "bl" : 0,
+      "ci" : 0,
+      "co" : 0,
+      "ft" : 16,
+      "ma" : 0,
+      "oA" : 0,
+      "oAP" : "\/css\/style-2023-min.css",
+      "oF" : 0,
+      "pg" : 0
+    },
+    "\/css\/style-2023.css.map" : {
+      "cB" : 0,
+      "ft" : 8192,
+      "hM" : 0,
+      "oA" : 0,
+      "oAP" : "\/css\/style-2023.css.map",
+      "oF" : 0
+    },
+    "\/css\/style-2023.scss" : {
+      "aP" : 1,
+      "bl" : 0,
+      "co" : 0,
+      "dP" : 10,
+      "ec" : 1,
+      "ft" : 4,
+      "ma" : 1,
+      "oA" : 0,
+      "oAP" : "\/css\/style-2023.css",
       "oF" : 0,
       "oS" : 3,
       "pg" : 0,
@@ -355,6 +390,14 @@
       "oAP" : "\/footer.php",
       "oF" : 0
     },
+    "\/frontpage-2023.php" : {
+      "cB" : 0,
+      "ft" : 8192,
+      "hM" : 0,
+      "oA" : 0,
+      "oAP" : "\/frontpage-2023.php",
+      "oF" : 0
+    },
     "\/frontpage.php" : {
       "cB" : 0,
       "ft" : 8192,
@@ -403,45 +446,95 @@
       "oAP" : "\/functions\/setup.php",
       "oF" : 0
     },
-    "\/header-banner.php" : {
+    "\/header\/2022-color\/header-banner.php" : {
       "cB" : 0,
       "ft" : 8192,
       "hM" : 0,
       "oA" : 0,
-      "oAP" : "\/header-banner.php",
+      "oAP" : "\/header\/2022-color\/header-banner.php",
       "oF" : 0
     },
-    "\/header-html.php" : {
+    "\/header\/2022-color\/header-html.php" : {
       "cB" : 0,
       "ft" : 8192,
       "hM" : 0,
       "oA" : 0,
-      "oAP" : "\/header-html.php",
+      "oAP" : "\/header\/2022-color\/header-html.php",
       "oF" : 0
     },
-    "\/header-nav.php" : {
+    "\/header\/2022-color\/header-nav.php" : {
       "cB" : 0,
       "ft" : 8192,
       "hM" : 0,
       "oA" : 0,
-      "oAP" : "\/header-nav.php",
+      "oAP" : "\/header\/2022-color\/header-nav.php",
       "oF" : 0
     },
-    "\/header-negative-banner.php" : {
+    "\/header\/2022-color\/header-negative-banner.php" : {
       "cB" : 0,
       "ft" : 8192,
       "hM" : 0,
       "oA" : 0,
-      "oAP" : "\/header-negative-banner.php",
+      "oAP" : "\/header\/2022-color\/header-negative-banner.php",
       "oF" : 0
     },
-    "\/header.php" : {
+    "\/header\/2022-color\/header.php" : {
       "cB" : 0,
       "ft" : 8192,
       "hM" : 0,
       "oA" : 0,
-      "oAP" : "\/header.php",
+      "oAP" : "\/header\/2022-color\/header.php",
       "oF" : 0
+    },
+    "\/header\/2023\/header-banner.php" : {
+      "cB" : 0,
+      "ft" : 8192,
+      "hM" : 0,
+      "oA" : 0,
+      "oAP" : "\/header\/2023\/header-banner.php",
+      "oF" : 0
+    },
+    "\/header\/2023\/header-html.php" : {
+      "cB" : 0,
+      "ft" : 8192,
+      "hM" : 0,
+      "oA" : 0,
+      "oAP" : "\/header\/2023\/header-html.php",
+      "oF" : 0
+    },
+    "\/header\/2023\/header-nav.php" : {
+      "cB" : 0,
+      "ft" : 8192,
+      "hM" : 0,
+      "oA" : 0,
+      "oAP" : "\/header\/2023\/header-nav.php",
+      "oF" : 0
+    },
+    "\/header\/2023\/header-negative-banner.php" : {
+      "cB" : 0,
+      "ft" : 8192,
+      "hM" : 0,
+      "oA" : 0,
+      "oAP" : "\/header\/2023\/header-negative-banner.php",
+      "oF" : 0
+    },
+    "\/header\/2023\/header.php" : {
+      "cB" : 0,
+      "ft" : 8192,
+      "hM" : 0,
+      "oA" : 0,
+      "oAP" : "\/header\/2023\/header.php",
+      "oF" : 0
+    },
+    "\/img\/2023\/header-description.svg" : {
+      "ft" : 2097152,
+      "miP" : 0,
+      "oA" : 2,
+      "oAP" : "\/img\/2023\/header-description.svg",
+      "oF" : 0,
+      "opt" : 0,
+      "plM" : 52780316221407,
+      "prP" : 0
     },
     "\/img\/191228_logo_max_negative.svg" : {
       "ft" : 2097152,
@@ -546,21 +639,21 @@
       "plM" : 52780316221407,
       "prP" : 0
     },
-    "\/img\/header-description-negative.svg" : {
+    "\/img\/header-description-2022.svg" : {
       "ft" : 2097152,
       "miP" : 0,
       "oA" : 2,
-      "oAP" : "\/img\/header-description-negative.svg",
+      "oAP" : "\/img\/header-description-2022.svg",
       "oF" : 0,
       "opt" : 0,
       "plM" : 52780316221407,
       "prP" : 0
     },
-    "\/img\/header-description.svg" : {
+    "\/img\/header-description-negative-2022.svg" : {
       "ft" : 2097152,
       "miP" : 0,
       "oA" : 2,
-      "oAP" : "\/img\/header-description.svg",
+      "oAP" : "\/img\/header-description-negative-2022.svg",
       "oF" : 0,
       "opt" : 0,
       "plM" : 52780316221407,
