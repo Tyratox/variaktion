@@ -8,7 +8,7 @@ wp_enqueue_style('primary-2022-color');
 
 the_post();
 
-get_header("html");
+get_template_part("header/2022-color/header", "html");
 
 ?>
 <div style="background-color:<?php echo get_field("header-color"); ?>; min-height: 100%;">

@@ -24,8 +24,10 @@ class VA_Enqueues
 	}
 	public function enqueue_styles()
 	{
-		wp_register_style('primary-2022-color', get_template_directory_uri() . '/css/style-2022.css', array(), "1.1.18");
-		wp_register_style('primary-2023', get_template_directory_uri() . '/css/style-2023.css', array(), "1.0");
+		wp_register_style('primary-2022-color', get_template_directory_uri() . '/css/style-2022.css', array(), "1.1.19");
+		wp_register_style('primary-2023', get_template_directory_uri() . '/css/2023/style-2023.css', array(), "1.1.5");
+		
+		wp_register_style('primary-2025', get_template_directory_uri() . '/css/2025/style-2025.css', array(), "1.0.0");
 		// wp_enqueue_style('primary-2022-color');
 	}
 }

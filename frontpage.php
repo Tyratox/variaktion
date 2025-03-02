@@ -381,12 +381,11 @@ Stand der Stadtbibliothek Aarau mit Büchern und Roboter, diverses Spielmaterial
             <div class="col-12 col-md-6">
                 <div class="address">
                     <p>
-                        IBAN: CH94 0900 0000 1536 6372 0
+                        IBAN: CH06 0076 1648 8273 6200 1
                     </p>
-                    <p>Verein Jugendfestival</p>
-                    <p>Variaktion</p>
-                    <p>c/o Jugendarbeit Aarau</p>
-                    <p>Poststrasse 17</p>
+                    <p>Verein Jugendkulturfestival Variaktion</p>
+                    <p>c/o Jugendkulturhaus Flösserplatz</p>
+                    <p>Flösserstrasse 7</p>
                     <p>5000 Aarau</p>
                 </div>
             </div>

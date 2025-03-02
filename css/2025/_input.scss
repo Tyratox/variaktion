@@ -1,0 +1,106 @@
+div.input,
+div.acf-comment-fields {
+  margin-bottom: 2rem;
+
+  .acf-label {
+    display: none;
+  }
+
+  &.acf-fields.-clear > .acf-field {
+    margin: 0;
+  }
+
+  & > div.schiller {
+    position: relative;
+  }
+
+  input,
+  .acf-field input,
+  textarea {
+    position: relative;
+    font-family: "Roboto", sans-serif;
+    font-size: 2rem;
+
+    width: 100%;
+    padding: 0 0.25rem;
+
+    background-color: transparent;
+    border: none;
+    border-bottom: transparent 2px solid;
+
+    border-bottom: #000 2px solid;
+    z-index: 10;
+
+    & ~ .phill {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+
+      content: "";
+      background-color: #fff;
+      height: 0;
+      transition: 0.2s all ease-in-out;
+      z-index: 0;
+    }
+
+    &:focus ~ .phill {
+      color: #fff;
+      height: 110%;
+    }
+
+    &:focus {
+      outline: none;
+      color: #dd1e1c !important;
+    }
+  }
+
+  input::placeholder,
+  textarea::placeholder {
+    color: rgba(0, 0, 0, 0.75);
+  }
+
+  input[type="submit"] {
+    margin-top: 1rem;
+    background-color: transparent;
+    border: #000 2px solid;
+    color: #000;
+
+    transition: all 0.3s ease-in-out;
+
+    &:hover {
+      background-color: #000;
+      color: #fff;
+      @extend .pulse;
+    }
+  }
+}
+
+.inverted div.input,
+.inverted div.acf-comment-fields {
+  input,
+  .acf-field input,
+  textarea {
+    color: #fff;
+    border-bottom-color: #fff;
+  }
+
+  input::placeholder,
+  textarea::placeholder {
+    color: rgba(255, 255, 255, 0.75);
+  }
+
+  input[type="submit"] {
+    color: #fff;
+    border-color: #fff;
+
+    &:hover {
+      color: #000;
+      background-color: #fff;
+    }
+  }
+}
+
+div.acf-comment-fields {
+  @extend .col-12;
+}

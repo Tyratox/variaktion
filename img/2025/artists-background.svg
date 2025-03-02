@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1050px" height="880px" viewBox="0 0 1050 880" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 43.2 (39069) - http://www.bohemiancoding.com/sketch -->
+    <title>artists-background</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="100%" y1="100%" x2="0%" y2="50%" id="linearGradient-1">
+            <stop stop-color="#DEAA79" offset="0%"></stop>
+            <stop stop-color="#E1AFD1" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="48.2943776%" y1="121.646049%" x2="50%" y2="0%" id="linearGradient-2">
+            <stop stop-color="#FFE6E6" offset="0%"></stop>
+            <stop stop-color="#FF8A8A" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="0%" y1="100%" x2="100%" y2="50%" id="linearGradient-3">
+            <stop stop-color="#FFE6A9" offset="0%"></stop>
+            <stop stop-color="#E1AFD1" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="100%" y1="100%" x2="0%" y2="50%" id="linearGradient-4">
+            <stop stop-color="#DEAA79" offset="0%"></stop>
+            <stop stop-color="#7469B6" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="100%" y1="100%" x2="0%" y2="30.2101512%" id="linearGradient-5">
+            <stop stop-color="#DEAA79" offset="0%"></stop>
+            <stop stop-color="#AD88C6" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="0%" y1="100%" x2="100%" y2="30.6019474%" id="linearGradient-6">
+            <stop stop-color="#FFE6A9" offset="0%"></stop>
+            <stop stop-color="#AD88C6" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="0%" y1="100%" x2="99.5754957%" y2="50%" id="linearGradient-7">
+            <stop stop-color="#FFE6A9" offset="0%"></stop>
+            <stop stop-color="#7469B6" offset="100%"></stop>
+        </linearGradient>
+        <radialGradient cx="50%" cy="50%" fx="50%" fy="50%" r="63.6573551%" gradientTransform="translate(0.500000,0.500000),scale(0.494182,1.000000),rotate(-90.000000),translate(-0.500000,-0.500000)" id="radialGradient-8">
+            <stop stop-color="#FFE6A9" offset="0%"></stop>
+            <stop stop-color="#B1AFFF" offset="100%"></stop>
+        </radialGradient>
+    </defs>
+    <g id="website" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="artists-background">
+            <polygon id="Path-2" fill="url(#linearGradient-1)" points="0 1439.23694 0 589.23694 525 -0.5"></polygon>
+            <polygon id="Path-2" fill="url(#linearGradient-2)" points="0 1438.27701 1050 1438.27701 525 -0.5"></polygon>
+            <polygon id="Path-2" fill="url(#linearGradient-3)" points="1050 1457 1050 607 525 -0.5"></polygon>
+            <polygon id="Path-2" fill="url(#linearGradient-4)" points="0 -292 0 286 525 -0.5"></polygon>
+            <polygon id="Path-2" fill="url(#linearGradient-5)" points="-2.84217094e-14 597.537048 -2.84217094e-14 247.537048 525 -0.5"></polygon>
+            <polygon id="Path-2" fill="url(#linearGradient-6)" points="1050 609.383131 1050 259.383131 525 -0.5"></polygon>
+            <polygon id="Path-2" fill="url(#linearGradient-7)" points="1050 -292 1050 286 525 -0.5"></polygon>
+            <path d="M57.0374732,5.68434189e-14 C60.2468937,-256.808729 269.20313,-464 526.5,-464 C783.79687,-464 992.753106,-256.808729 995.962527,5.68434189e-14 L887.766728,5.68434189e-14 C884.566208,-196.994105 724.047287,-355.700224 526.5,-355.700224 C328.952713,-355.700224 168.433792,-196.994105 165.233272,-7.44049981e-06 L57.0374732,1.13686838e-13 Z" id="Combined-Shape" fill="url(#radialGradient-8)"></path>
+        </g>
+    </g>
+</svg>

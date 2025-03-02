@@ -18,16 +18,16 @@ $container-max-widths: (
 @import "animation";
 @import "fonts";
 @import "input";
-@import "../node_modules/bootstrap/scss/functions";
-@import "../node_modules/bootstrap/scss/variables";
-@import "../node_modules/bootstrap/scss/mixins";
-@import "../node_modules/bootstrap/scss/reboot";
-@import "../node_modules/bootstrap/scss/grid";
+@import "../../node_modules/bootstrap/scss/functions";
+@import "../../node_modules/bootstrap/scss/variables";
+@import "../../node_modules/bootstrap/scss/mixins";
+@import "../../node_modules/bootstrap/scss/reboot";
+@import "../../node_modules/bootstrap/scss/grid";
 
-$fa-font-path: "../font";
-@import "../node_modules/@fortawesome/fontawesome-free/scss/brands.scss";
-@import "../node_modules/@fortawesome/fontawesome-free/scss/solid.scss";
-@import "../node_modules/@fortawesome/fontawesome-free/scss/fontawesome.scss";
+$fa-font-path: "../../font";
+@import "../../node_modules/@fortawesome/fontawesome-free/scss/brands.scss";
+@import "../../node_modules/@fortawesome/fontawesome-free/scss/solid.scss";
+@import "../../node_modules/@fortawesome/fontawesome-free/scss/fontawesome.scss";
 
 html,
 body {
@@ -303,7 +303,7 @@ $footer-p-sizes: (
 
 footer {
   border-top: #fff 3px solid;
-  background-color: #000;
+  background-color: #1c0b47;
   color: #fff;
   padding: 2rem 0;
 
@@ -509,86 +509,8 @@ section {
 	padding: 2rem 0;
 }
 
-
-.sponsors {
-  font-size: 1.5rem;
-  
-  background-color: #fff;
-  color: #000;
-
-  .row {
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-    align-items: center;
-  }
-
-  .logos {
-    display: flex;
-    flex-wrap: wrap;
-
-    justify-content: flex-start;
-    margin-bottom: 2rem;
-
-    a {
-      height: 9rem;
-      padding: 4rem 4rem 0 0;
-      display: block;
-
-      &:hover {
-        animation: none;
-      }
-
-      &:first-child {
-        padding-left: 0;
-      }
-
-      &::last-child {
-        padding-right: 0;
-      }
-    }
-  }
-
-  svg,
-  img {
-    width: auto;
-    max-width: 100%;
-    height: 100%;
-  }
-}
-
-#press {
-	background-color: #000;
-	color: #fff;
-	
-	a {
-		color: #fff;
-	}
-}
-
-$press-h3-sizes: (
-  xxl: 3rem
-);
-
-.press-articles {
-	& > a {
-		display: block;
-		text-decoration: none;
-		padding-bottom: 4rem;
-	}
-	h3 {
-		font-size: 2rem;
-		margin-bottom: 0.5rem;
-		
-		@each $breakpoint, $press-h3-size in $press-h3-sizes {
-          @include media-breakpoint-up($breakpoint, $grid-breakpoints) {
-            font-size: $press-h3-size;
-          }
-        }
-	}
-}
-
 .previous-years {
-	background-color: #000;
+	background-color: #1c0b47;
 	color: #fff;
 	
 	a {
@@ -634,4 +556,474 @@ $press-h3-sizes: (
 .wp-block-gallery {
 	display: flex;
 	flex-wrap: wrap;
+}
+
+.lineup {
+  color: #fff;
+
+  padding-top: 3rem;
+  position: relative;
+}
+
+#lineup-bbackground {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	
+	background-color: #ffbd59;
+	z-index: -2;
+}
+#lineup-background {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	height: 100vh;
+	
+	/* Avoid Chrome to see Safari hack */
+    @supports (-webkit-touch-callout: none) {
+      height: -webkit-fill-available; /* https://allthingssmitty.com/2020/05/11/css-fix-for-100vh-in-mobile-webkit/ */
+    }
+    
+	/*background-image: url(../img/artists-background.svg);*/
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center top;
+	z-index: -1;
+}
+
+
+$artist-displays: (
+  sm: block,
+  md: inline-block,
+  lg: inline-block,
+  xl: inline-block
+);
+
+$artist-name-sizes: (
+  sm: 3rem,
+  md: 3rem,
+  lg: 6rem,
+  xl: 6rem,
+  xxl: 8rem
+);
+
+$smaller-artist-name-sizes: (
+  sm: 3rem,
+  md: 3rem,
+  lg: 5rem,
+  xl: 5rem,
+  xxl: 7rem
+);
+
+$smallest-artist-name-sizes: (
+  sm: 3rem,
+  md: 3rem,
+  lg: 4rem,
+  xl: 4rem,
+  xxl: 6rem
+);
+
+$date-name-sizes: (
+  sm: 3rem,
+  md: 3rem,
+  lg: 4rem,
+  xl: 4rem,
+  xxl: 6rem
+);
+
+$artist-time-displays: (
+  sm: block,
+  md: block,
+  lg: block,
+  xl: block
+);
+
+$lineup-col-max-widths: (
+  xl: 100%
+);
+$lineup-col-flexs: (
+  xl: 0 0 100%
+);
+
+$lineup-container-widths: (
+  xxl: 100%
+);
+$lineup-container-display: (
+  xxl: flex
+);
+$lineup-container-margins: (
+  xl: auto
+);
+
+.lineup {
+	.container {
+		@each $breakpoint, $lineup-container-width in $lineup-container-widths {
+	      @include media-breakpoint-up($breakpoint, $grid-breakpoints) {
+	        max-width: $lineup-container-width;
+	      }
+	    }
+	    @each $breakpoint, $lineup-container-margin in $lineup-container-margins {
+	      @include media-breakpoint-down($breakpoint, $grid-breakpoints) {
+	        margin-left: $lineup-container-margin;
+	        margin-right: $lineup-container-margin;
+	      }
+	    }
+	    @each $breakpoint, $lineup-container-display in $lineup-container-display {
+	      @include media-breakpoint-up($breakpoint, $grid-breakpoints) {
+		    display: $lineup-container-display;
+	      }
+	    }
+	}
+	.col-6{
+		@each $breakpoint, $lineup-col-max-width in $lineup-col-max-widths {
+	      @include media-breakpoint-down($breakpoint, $grid-breakpoints) {
+	        max-width: $lineup-col-max-width;
+	      }
+	    }
+	    @each $breakpoint, $lineup-col-flex in $lineup-col-flexs {
+	      @include media-breakpoint-down($breakpoint, $grid-breakpoints) {
+	        flex: $lineup-col-flex;
+	      }
+	    }
+	}
+}
+
+.activities {
+	padding-top: 2rem;
+	
+	.date {
+		margin-top: 3rem;
+	}
+}
+
+.artists, .activities {
+  @extend .anton;
+
+  & > div {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .tier-1, .tier-2, .tier-3, .tier-4{
+	  margin-bottom: 3rem;
+  }
+
+  .tier-1 {
+    font-size: 3rem;
+    @each $breakpoint, $artist-name-size in $artist-name-sizes {
+      @include media-breakpoint-up($breakpoint, $grid-breakpoints) {
+        font-size: $artist-name-size;
+      }
+    }
+  }
+  .tier-2, .tier-3, .tier-4 {
+    font-size: 3rem;
+    @each $breakpoint, $smaller-artist-name-size in $smaller-artist-name-sizes {
+      @include media-breakpoint-up($breakpoint, $grid-breakpoints) {
+        font-size: $smaller-artist-name-size;
+      }
+    }
+  }
+  .tier-3, .tier-4 {
+    font-size: 3rem;
+    @each $breakpoint, $smallest-artist-name-size in $smallest-artist-name-sizes {
+      @include media-breakpoint-up($breakpoint, $grid-breakpoints) {
+        font-size: $smallest-artist-name-size;
+      }
+    }
+  }
+  
+  .date {
+	  margin-bottom: 1rem;
+	  
+	  font-size: 3rem;
+	  
+	  @each $breakpoint, $date-name-size in $date-name-sizes {
+        @include media-breakpoint-up($breakpoint, $grid-breakpoints) {
+          font-size: $date-name-size;
+        }
+      }
+    
+	  white-space: nowrap;
+	  word-break: keep-all;
+	  text-stroke: 1.5px #fff;
+	  -webkit-text-stroke: 1.5px #fff;
+	  color: transparent;
+	  
+	  img.emoji {
+		  margin-left: 1rem !important;
+	  }
+  }
+  
+  .activity {
+	  padding: 1rem !important;
+  }
+
+  .artist, .activity {
+	padding: 0 1rem;
+    display: inline-block;
+    color: #fff;
+    text-align: center;
+
+    border-bottom: none;
+    text-decoration: none;
+    
+    &[href]:hover > * {
+	    text-decoration: underline;
+    }
+      
+    & > * {
+	    display: block;
+	    
+	    @each $breakpoint, $artist-display in $artist-displays {
+		    @include media-breakpoint-up($breakpoint, $grid-breakpoints) {
+			    display: $artist-display;
+			}
+		}
+    }
+      
+    & > small {
+	    font-size: 0.75em;
+	    white-space: nowrap;
+	    word-break: keep-all;
+	    text-stroke: 1.5px #fff;
+	    -webkit-text-stroke: 1.5px #fff;
+	    color: transparent;
+	    
+	    display: block;
+	}
+  }
+}
+
+$h2-positions: (
+  sm: relative,
+  md: relative,
+  lg: absolute,
+  xl: absolute
+);
+
+$map-scalings: (
+  sm: 2,
+  md: 1,
+  lg: 1,
+  xl: 1
+);
+
+.map-link, .map-link:hover {
+	text-decoration: none !important;
+}
+
+.map {
+  position: relative;
+  background-color: #00c2cb;
+  overflow: hidden;
+  
+  padding-top: 4rem;
+  padding-bottom: 0rem;
+
+  .title {
+    position: relative;
+    color: #fff;
+    z-index: 1;
+    
+    h2 {
+	    margin-bottom: 0;
+    }
+    
+    u {
+	    display: inline-block;
+    }
+
+    @each $breakpoint, $h2-position in $h2-positions {
+      @include media-breakpoint-up($breakpoint, $grid-breakpoints) {
+        position: $h2-position;
+        top: 0;
+      }
+    }
+  }
+
+  svg {
+    transform: scale(2);
+    transition: all 0.3s ease-in-out;
+
+    @each $breakpoint, $map-scaling in $map-scalings {
+      @include media-breakpoint-up($breakpoint, $grid-breakpoints) {
+        transform: scale($map-scaling);
+      }
+    }
+  }
+}
+
+.programm {
+	background-color: #7ed957;
+	color: #fff;
+	padding-bottom: 2rem;
+	
+	a {
+		color: #fff;
+		display: inline-block;
+	}
+	
+	.container {
+		margin-left: auto;
+		margin-right: auto;
+	}
+}
+
+#color-background {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100vh;
+  
+  /* Avoid Chrome to see Safari hack */
+  @supports (-webkit-touch-callout: none) {
+    height: -webkit-fill-available; /* https://allthingssmitty.com/2020/05/11/css-fix-for-100vh-in-mobile-webkit/ */
+  }
+
+  background-image: url(../../img/2023/banner-background.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center bottom;
+
+  z-index: -1;
+}
+
+.particles-js-canvas-el {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  z-index: -1;
+}
+
+.sponsors {
+  padding-bottom: 5rem;
+  font-size: 1.5rem;
+  
+  background-color: #00c2cb;
+  color: #fff;
+
+  .row {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    align-items: center;
+  }
+
+  .logos {
+    display: flex;
+    flex-wrap: wrap;
+
+    justify-content: flex-start;
+    margin-bottom: 2rem;
+
+    a {
+      height: 11rem;
+      padding: 4rem 4rem 0 0;
+      display: block;
+
+      &:hover {
+        animation: none;
+      }
+
+      &:first-child {
+        padding-left: 0;
+      }
+
+      &::last-child {
+        padding-right: 0;
+      }
+    }
+  }
+
+  svg,
+  img {
+    width: auto;
+    max-width: 100%;
+    height: 100%;
+  }
+}
+
+$date-sizes: (
+  sm: 2rem,
+  md: 3rem,
+  lg: 4rem,
+  xl: 5rem
+);
+
+.support {
+	background-color: #f00;
+	color: #fff;
+}
+
+#press {
+	background-color: #FF00B0;
+	color: #fff;
+	
+	a {
+		color: #fff;
+	}
+}
+
+$press-h3-sizes: (
+  xxl: 3rem
+);
+
+.press-articles {
+	& > a {
+		display: block;
+		text-decoration: none;
+		padding-bottom: 4rem;
+	}
+	h3 {
+		font-size: 2rem;
+		margin-bottom: 0.5rem;
+		
+		@each $breakpoint, $press-h3-size in $press-h3-sizes {
+          @include media-breakpoint-up($breakpoint, $grid-breakpoints) {
+            font-size: $press-h3-size;
+          }
+        }
+	}
+}
+
+.table {
+	
+	margin-bottom: 1rem;
+	
+	td {
+		padding: 0.5rem 0;
+		vertical-align: top;
+		
+		&:first-child{
+			padding-right: 3rem;
+			
+			@extend .anton;
+			text-transform: uppercase;
+			word-break: keep-all;
+			white-space: nowrap;
+		}
+	}
+	
+	ul {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+	}
+	
+	li {
+		padding: 0.25rem 0;
+	}
+	
+	a {
+		color: #fff;
+	}
 }

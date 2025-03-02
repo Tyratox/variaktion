@@ -1,11 +1,11 @@
 <?php
 
 /*
- * Template Name: Frontpage 2023 (schwarz-weiss)
+ * Template Name: Frontpage 2025 (schwarz-weiss)
  */
 
-wp_enqueue_style('primary-2023');
-get_template_part("header/2023/header", "banner");
+wp_enqueue_style('primary-2025');
+get_template_part("header/2025/header", "banner");
 
 the_post();
 
@@ -20,11 +20,11 @@ $pageId = get_the_ID();
     </div>
 </section>
 
-<?php get_template_part("header/2023/header", "nav"); ?>
+<?php get_template_part("header/2025/header", "nav"); ?>
 
 <section id="info" class="info">
     <div class="container">
-        <h2 class="h2">Info</h2>
+        <h2 class="h2">Save the Date</h2>
         <div class="row">
             <div class="col-12 col-md-12">
                 <p><?php echo get_field("info-text", $pageId); ?></p>
@@ -55,7 +55,10 @@ $pageId = get_the_ID();
     </div>
 </section>
 
-<section id="press">
+<?php
+	
+	/*
+		<section id="press">
 	<div class="container">
 		<h2 class="h2">Presse</h2>
 		<div class="press-articles">
@@ -70,7 +73,7 @@ $pageId = get_the_ID();
 		                array(
 		                    'taxonomy' => 'variaktion_year',
 		                    'field' => 'slug',
-		                    'terms' => '2023',
+		                    'terms' => '2025',
 		                )
 		            ),
 		        ));
@@ -95,13 +98,15 @@ $pageId = get_the_ID();
 		</div>
 	</div>
 </section>
+*/
+?>
 
 <section class="sponsors">
     <?php
 
-    echo "<div class='container' id='sponsors'>";
+    echo "<div class='container' id='sponsoring'>";
 
-    echo '<h2 class="h2">Sponsoren</h2>';
+    echo '<h2 class="h2">Sponsoring</h2>';
 
     $x = get_field("sponsor-text");
 
@@ -121,7 +126,7 @@ $pageId = get_the_ID();
                 array(
                     'taxonomy' => 'variaktion_year',
                     'field' => 'slug',
-                    'terms' => '2023',
+                    'terms' => '2025',
                 )
             ),
         ));
@@ -173,9 +178,10 @@ $pageId = get_the_ID();
 	<div class='container' id='previous-years'>
 		<h2 class="h2">Vorherige Jahre</h2>
 		<ul>
+			<li><a href="/festival-2023">2023</a></li>
 			<li><a href="/festival-2022">2022</a></li>
 		</ul>
 	</div>
 </section>
 
-<?php get_footer(); ?>
+<?php get_footer("white"); ?>
