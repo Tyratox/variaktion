@@ -947,6 +947,16 @@
       "plM" : 52780316221407,
       "prP" : 0
     },
+    "\/img\/2025\/festival-info-end.svg" : {
+      "ft" : 2097152,
+      "miP" : 0,
+      "oA" : 2,
+      "oAP" : "\/img\/2025\/festival-info-end.svg",
+      "oF" : 0,
+      "opt" : 0,
+      "plM" : 52780316221407,
+      "prP" : 0
+    },
     "\/img\/2025\/header-description-alt-negative.svg" : {
       "ft" : 2097152,
       "miP" : 0,
@@ -987,6 +997,16 @@
       "plM" : 52780316221407,
       "prP" : 0
     },
+    "\/img\/2025\/helfer-end.svg" : {
+      "ft" : 2097152,
+      "miP" : 0,
+      "oA" : 2,
+      "oAP" : "\/img\/2025\/helfer-end.svg",
+      "oF" : 0,
+      "opt" : 0,
+      "plM" : 52780316221407,
+      "prP" : 0
+    },
     "\/img\/2025\/lineup-end.svg" : {
       "ft" : 2097152,
       "miP" : 0,
@@ -997,11 +1017,31 @@
       "plM" : 52780316221407,
       "prP" : 0
     },
+    "\/img\/2025\/logo-mini-alt.svg" : {
+      "ft" : 2097152,
+      "miP" : 0,
+      "oA" : 2,
+      "oAP" : "\/img\/2025\/logo-mini-alt.svg",
+      "oF" : 0,
+      "opt" : 0,
+      "plM" : 52780316221407,
+      "prP" : 0
+    },
     "\/img\/2025\/map-end.svg" : {
       "ft" : 2097152,
       "miP" : 0,
       "oA" : 2,
       "oAP" : "\/img\/2025\/map-end.svg",
+      "oF" : 0,
+      "opt" : 0,
+      "plM" : 52780316221407,
+      "prP" : 0
+    },
+    "\/img\/2025\/map-old.svg" : {
+      "ft" : 2097152,
+      "miP" : 0,
+      "oA" : 2,
+      "oAP" : "\/img\/2025\/map-old.svg",
       "oF" : 0,
       "opt" : 0,
       "plM" : 52780316221407,
@@ -1145,6 +1185,16 @@
       "miP" : 0,
       "oA" : 2,
       "oAP" : "\/img\/banner-background.svg",
+      "oF" : 0,
+      "opt" : 0,
+      "plM" : 52780316221407,
+      "prP" : 0
+    },
+    "\/img\/footer_logo.svg" : {
+      "ft" : 2097152,
+      "miP" : 0,
+      "oA" : 2,
+      "oAP" : "\/img\/footer_logo.svg",
       "oF" : 0,
       "opt" : 0,
       "plM" : 52780316221407,

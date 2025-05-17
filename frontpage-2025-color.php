@@ -16,23 +16,23 @@ $pageId = get_the_ID();
 	<div id="color-background"></div>
     <div class="spray-logo" style="position:relative;">
         <?php
-          echo file_get_contents(locate_template("img/191228_logo_mini_negative.svg"));
+          echo file_get_contents(locate_template("img/2025/logo-mini-alt.svg"));
         ?>
     </div>
 </section>
 
 <?php get_template_part("header/2025-color/header", "nav"); ?>
 
-<?php
-	
-	/*
-		<section id="lineup" class="lineup">
+<section id="lineup" class="lineup">
 	<div id="lineup-background"></div>
     <div class="container">
         <div class="artists">
             <?php
 	            
-	        $dates = array('saturday' => array('name' => 'samstag, 3. juni'));
+	        $dates = array(
+	        	'friday' => array('name' => 'freitag, 20. juni'),
+	        	'saturday' => array('name' => 'samstag, 21. juni')
+	        );
 
             function acts_by_category_date($category, $date){
                 $query = new WP_Query(array(
@@ -74,7 +74,7 @@ $pageId = get_the_ID();
             
             foreach($dates as $date => $dv){
 	            
-	            echo "<div class='date'>" . $dv['name'] . "</div>";
+	            echo "<div class='date'><span>" . $dv['name'] . "</span></div>";
 	            
 	            foreach($slugs as $slug => $v) {
 	                echo "<div class='row tier-" . $v['tier'] . "'>";
@@ -82,12 +82,23 @@ $pageId = get_the_ID();
 	                    $origin = get_field('origin', $post->ID);
 	                    $time = get_field('time', $post->ID);
 	                    $link = get_field('link', $post->ID);
+	                    $name = get_field('name', $post->ID);
+	                    $color = get_field('color', $post->ID);
 	                    
-	                    if(empty($link)){
-		                    echo "<div class='artist'><span>" . $post->post_title . "</span><wbr><small>" . $time . "</small>" . "</div>";
+	                    $time_element = empty($time) ? "" : "<wbr><small><span>" . $time . "</span></small>";
+	                    
+	                    echo "<div class='artist-wrapper' style='--artist-color:" . $color . "'>";
+	                    
+	                    if(!empty($name)){
+		                    echo "<div class='artist'><span>" . $name . "</span>" . $time_element . "</div>";
+	                    }else if(empty($link)){
+		                    echo "<div class='artist'><span>" . $post->post_title . "</span>" . $time_element . "</div>";
 	                    }else{
-		                    echo "<a class='artist' href='" . $link . "' target='_blank'><span>" . $post->post_title . "</span><wbr><small>" . $time . "</small>" . "</a>";
+		                    echo "<a class='artist' href='" . $link . "' target='_blank'><span>" . $post->post_title . "</span>" . $time_element . "</a>";
 	                    }
+						
+						echo "</div>";
+	                    
 	                }
 	                echo "</div>";
 	            }
@@ -96,16 +107,13 @@ $pageId = get_the_ID();
 
             ?>
         </div>
-        <div class="artists col-6">
+        <?php
+	        /*<div class="artists col-6">
 			<?php echo apply_filters('the_content', get_the_content(null, false, 847)); ?>
-        </div>
+        </div>*/
+        ?>
     </div>
 </section>
-
-<?php echo file_get_contents(locate_template("img/2025/lineup-end.svg")); ?>
-
-*/?>
-
 
 
 <a class="map-link" target="_blank" href="https://www.google.com/maps/place/47%C2%B023'37.9%22N+8%C2%B002'22.1%22E/@47.3938422,8.0389436,19z/data=!4m6!3m5!1s0x0:0xa158492c8bb16311!7e2!8m2!3d47.3938638!4d8.0394719">
@@ -122,44 +130,107 @@ $pageId = get_the_ID();
 
 <?php echo file_get_contents(locate_template("img/2025/map-end.svg")); ?>
 
-<?php
-	
-/*
 <section id="programm" class="programm">
 	<div class="container row">
-        <div class="title">
-            <h2 class="h2">Programm</h3>
-        </div>
-        
-        <table class="table">
-		    <tbody>
-			   <tr>
-				   <td>17:00-22:00</td>
-				   <td>
-					   🎵 Konzerte, siehe <a class="pulse" href="#lineup">Lineup</a>
-				   </td>
-			   </tr>
-			   <tr>
-				   <td>22:00-04:00</td>
-				   <td>
-					   <p>🪩 <span class="anton">Night Pulse</span> (2000er Hits): Variaktion Afterparty im Flösserplatz</p>		    
-					    <p>🔗
-						    <a class="pulse" href="https://www.floesserplatz.ch/de/programm/2025/juni/night-pulse1" target="_blank">Mehr Infos</a>,
-						    <a class="pulse" href="https://eventfrog.ch/de/p/party/hip-hop-rap/night-pulse-7049686903277118251.html" target="_blank">Tickets</a>
-					    </p>
-					   
-				   </td>
-			   </tr>
-		    </tbody>
-	    </table>
+		<div class="col-12">
+	        <div class="title">
+	            <h2 class="h2">Programm</h3>
+	        </div>
+	        
+	        <div class="anton support-program">
+	        	<?php echo get_field("supporting-program-text", $pageId); ?>
+	        </div>
+	        
+	        <?php
+		        
+	        $dates = array(
+	        	'friday' => array('name' => 'freitag'),
+	        	'saturday' => array('name' => 'samstag')
+	        );
+
+            function program_by_date($date){
+                $query = new WP_Query(array(
+                    "post_type" => "program",
+                    "posts_per_page" => -1,
+                    'tax_query' => array(
+                        array(
+                            'taxonomy' => 'program-dates',
+                            'field' => 'slug',
+                            'terms' => $date,
+                        ),
+                        array(
+		                    'taxonomy' => 'variaktion_year',
+		                    'field' => 'slug',
+		                    'terms' => '2025',
+		                )
+                    ),
+                    'orderby'   => 'meta_value',
+					'order' => 'ASC',
+					'meta_key' => 'time',
+                ));
+
+                return $query->posts;
+            }
+            
+            foreach($dates as $date => $dv){
+	            
+	            
+                
+                $term = get_term_by('slug', $date, 'program-dates');
+                $color = get_field('color', 'program-dates_' . $term->term_id);
+	            
+	            echo "<h3 class='h3 program-date' style='--date-color: " . $color . "'><span>" . $dv['name'] . "</span></h3>";
+	            echo "<table class='table'><tbody>";
+	            
+                foreach(program_by_date($date) as $post) {
+                    $time = get_field('time', $post->ID);
+                    
+                    
+                    echo "<tr>";
+                    	echo "<td>" . $time . "</td>";
+                    	echo "<td>" . apply_filters('the_content', $post->post_content) . "</td>";
+                    echo "</tr>";
+					
+					
+	            }
+	            
+	            echo "</tbody></table>";
+            }
+		        
+	        ?>
+	    </div>
     </div>
 </section>
 
 <?php echo file_get_contents(locate_template("img/2025/programm-end.svg")); ?>
 
-*/
+<section id="festival-info" class="festival-info">
+	<div class="container row">
+		<div class="col-12">
+	        <div class="title">
+	            <h2 class="h2">Festivalinfos</h3>
+	        </div>
+	        
+	        <?php echo get_field("festival-info-text", $pageId); ?>
+	    </div>
+    </div>
+</section>
 
-?>
+<?php echo file_get_contents(locate_template("img/2025/festival-info-end.svg")); ?>
+
+<section id="helfer" class="helfer">
+	<div class="container row">
+		<div class="col-12">
+	        <div class="title">
+	            <h2 class="h2">Helfende Hände</h3>
+	        </div>
+	        
+	        <?php echo get_field("helper-text", $pageId); ?>
+	    </div>
+    </div>
+</section>
+
+<?php echo file_get_contents(locate_template("img/2025/helfer-end.svg")); ?>
 
 
 <section id="support" class="support">
@@ -228,12 +299,12 @@ $pageId = get_the_ID();
 	</div>
 </section>
 <?php echo file_get_contents(locate_template("img/2025/press-end.svg")); ?>*/?>
-<section class="sponsors">
+<section class="sponsoring">
     <?php
 
-    echo "<div class='container' id='sponsors'>";
+    echo "<div class='container' id='sponsoring'>";
 
-    echo '<h2 class="h2">Sponsoren</h2>';
+    echo '<h2 class="h2">Sponsoring</h2>';
 
     $x = get_field("sponsor-text");
 
@@ -272,6 +343,9 @@ $pageId = get_the_ID();
         'col' => 'col-4'
     ), 'bis-1000-fr' => array(
         'tier' => 4,
+        'col' => 'col-3'
+    ), 'jugendarbeit' => array(
+        'tier' => 5,
         'col' => 'col-3'
     ));
 

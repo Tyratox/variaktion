@@ -4,7 +4,7 @@
     <div class="container">
         <div class="row">
             <div class="col-12 col-md-4 logo">
-                <?php echo file_get_contents(locate_template("img/191228_logo_max_negative.svg")); ?>
+                <?php echo file_get_contents(locate_template("img/footer_logo.svg")); ?>
             </div>
             <div class="col-12 d-sm-none">
                 <hr />

@@ -8,7 +8,7 @@
             ?>
             <div><a href="#wo">Location</a></div>
             <div><a href="#support">Support</a></div>
-            <div><a href="#sponsors">Sponsoren</a></div>
+            <div><a href="#sponsoring">Sponsoring</a></div>
         </div>
     </div>
 </nav>

@@ -15,7 +15,7 @@ $pageId = get_the_ID();
 <section id="particles">
     <div class="spray-logo" style="position:relative;">
         <?php
-          echo file_get_contents(locate_template("img/191228_logo_mini.svg"));
+          echo file_get_contents(locate_template("img/2025/logo-mini-alt.svg"));
         ?>
     </div>
 </section>
@@ -146,7 +146,11 @@ $pageId = get_the_ID();
     ), 'bis-1000-fr' => array(
         'tier' => 4,
         'col' => 'col-3'
-    ));
+    ), 'jugendarbeit' => array(
+        'tier' => 5,
+        'col' => 'col-3'
+    )
+    );
 
     echo "<div class='row'>";
     echo "<div class='col-12'>";

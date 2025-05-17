@@ -57,7 +57,7 @@ a {
 
 a:hover {
   color: #000;
-  // @extend .pulse;
+  @extend .pulse;
   &:hover{
 	  text-decoration: underline;
   }
@@ -261,11 +261,11 @@ $h2-sizes: (
 }
 
 $h3-sizes: (
-  sm: 1.5rem,
-  md: 2rem,
-  lg: 3rem,
-  xl: 4rem,
-  xxl: 4.5rem
+  sm: 1.75rem,
+  md: 1.75rem,
+  lg: 2rem,
+  xl: 2.25rem,
+  xxl: 2.5rem
 );
 
 .h3 {
@@ -513,6 +513,39 @@ section {
 	padding: 2rem 0;
 }
 
+.table {
+	
+	margin-bottom: 1rem;
+	
+	td {
+		padding: 0.5rem 0;
+		vertical-align: top;
+		@extend .anton;
+		text-transform: uppercase;
+		
+		&:first-child{
+			padding-right: 3rem;
+			
+			word-break: keep-all;
+			white-space: nowrap;
+		}
+	}
+	
+	ul {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+	}
+	
+	li {
+		padding: 0.25rem 0;
+	}
+	
+	a {
+		color: #fff;
+	}
+}
+
 .previous-years {
 	ul {
 		list-style: none;
@@ -593,7 +626,7 @@ $h2-positions: (
   z-index: -1;
 }
 
-.sponsors {
+.sponsoring {
   padding-bottom: 5rem;
   font-size: 1.5rem;
 
@@ -611,7 +644,8 @@ $h2-positions: (
     margin-bottom: 2rem;
 
     a {
-      height: 11rem;
+      width: 20rem;
+      height: 10rem;
       padding: 4rem 4rem 0 0;
       display: block;
 
@@ -632,8 +666,11 @@ $h2-positions: (
   svg,
   img {
     width: auto;
-    max-width: 100%;
+    width: 100%;
     height: 100%;
+    
+    object-fit: contain;
+    object-position: center;
   }
 }
 
@@ -659,31 +696,256 @@ $press-h3-sizes: (
 	}
 }
 
-.lineup {
-  color: #fff;
+$artist-displays: (
+  sm: block,
+  md: inline-block,
+  lg: inline-block,
+  xl: inline-block
+);
 
-  padding-top: 3rem;
-  position: relative;
+$artist-gaps: (
+  sm: 0.5rem,
+  md: 0.5rem,
+  lg: 1rem,
+  xl: 1.5rem
+);
+
+$artist-name-sizes: (
+  sm: 2.5rem,
+  md: 3rem,
+  lg: 4.5rem,
+  xl: 4.5rem,
+  xxl: 6rem
+);
+
+$smaller-artist-name-sizes: (
+  sm: 2.5rem,
+  md: 3rem,
+  lg: 3.5rem,
+  xl: 3.5rem,
+  xxl: 5rem
+);
+
+$smallest-artist-name-sizes: (
+  sm: 2.5rem,
+  md: 3rem,
+  lg: 3.5rem,
+  xl: 3.5rem,
+  xxl: 5rem
+);
+
+$date-name-sizes: (
+  sm: 2.5rem,
+  md: 3rem,
+  lg: 3.5rem,
+  xl: 3.5rem,
+  xxl: 5rem
+);
+
+$artist-time-displays: (
+  sm: block,
+  md: block,
+  lg: block,
+  xl: block
+);
+
+$lineup-col-max-widths: (
+  xl: 100%
+);
+$lineup-col-flexs: (
+  xl: 0 0 100%
+);
+
+$lineup-container-widths: (
+  xxl: 100%
+);
+$lineup-container-display: (
+  xxl: flex
+);
+$lineup-container-margins: (
+  xl: auto
+);
+
+.lineup {
+	color: #fff;
+
+	padding-top: 3rem;
+  	position: relative;
+  
+  	background-image: linear-gradient(rgb(239,182,181), rgb(214,174,199));
+	
+	.container {
+		@each $breakpoint, $lineup-container-width in $lineup-container-widths {
+	      @include media-breakpoint-up($breakpoint, $grid-breakpoints) {
+	        max-width: $lineup-container-width;
+	      }
+	    }
+	    @each $breakpoint, $lineup-container-margin in $lineup-container-margins {
+	      @include media-breakpoint-down($breakpoint, $grid-breakpoints) {
+	        margin-left: $lineup-container-margin;
+	        margin-right: $lineup-container-margin;
+	      }
+	    }
+	    @each $breakpoint, $lineup-container-display in $lineup-container-display {
+	      @include media-breakpoint-up($breakpoint, $grid-breakpoints) {
+		    display: $lineup-container-display;
+	      }
+	    }
+	}
+	.col-6{
+		@each $breakpoint, $lineup-col-max-width in $lineup-col-max-widths {
+	      @include media-breakpoint-down($breakpoint, $grid-breakpoints) {
+	        max-width: $lineup-col-max-width;
+	      }
+	    }
+	    @each $breakpoint, $lineup-col-flex in $lineup-col-flexs {
+	      @include media-breakpoint-down($breakpoint, $grid-breakpoints) {
+	        flex: $lineup-col-flex;
+	      }
+	    }
+	}
 }
 
-#lineup-background {
-	position: absolute;
-	top: 0;
-	left: 0;
-	right: 0;
-	height: 100vh;
-	
-	/* Avoid Chrome to see Safari hack */
-    @supports (-webkit-touch-callout: none) {
-      height: -webkit-fill-available; /* https://allthingssmitty.com/2020/05/11/css-fix-for-100vh-in-mobile-webkit/ */
+.artists, .activities {
+  @extend .anton;
+
+  & > div {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    
+    gap: 1rem;
+    
+    @each $breakpoint, $artist-gap in $artist-gaps {
+      @include media-breakpoint-up($breakpoint, $grid-breakpoints) {
+        gap: $artist-gap;
+      }
+    }
+  }
+  
+  .tier-1, .tier-2, .tier-3, .tier-4 {
+	margin-bottom: 1rem;
+	  
+	@each $breakpoint, $artist-gap in $artist-gaps {
+      @include media-breakpoint-up($breakpoint, $grid-breakpoints) {
+        margin-bottom: $artist-gap;
+      }
+    }
+  }
+
+  .tier-1 {
+    font-size: 2.5rem;
+    @each $breakpoint, $artist-name-size in $artist-name-sizes {
+      @include media-breakpoint-up($breakpoint, $grid-breakpoints) {
+        font-size: $artist-name-size;
+      }
+    }
+  }
+  .tier-2, .tier-3, .tier-4 {
+    font-size: 2.5rem;
+    @each $breakpoint, $smaller-artist-name-size in $smaller-artist-name-sizes {
+      @include media-breakpoint-up($breakpoint, $grid-breakpoints) {
+        font-size: $smaller-artist-name-size;
+      }
+    }
+  }
+  .tier-3, .tier-4 {
+    font-size: 2.5rem;
+    @each $breakpoint, $smallest-artist-name-size in $smallest-artist-name-sizes {
+      @include media-breakpoint-up($breakpoint, $grid-breakpoints) {
+        font-size: $smallest-artist-name-size;
+      }
+    }
+  }
+  
+  .date {
+	  margin-bottom: 1rem;
+	  
+	  font-size: 2.5rem;
+	  
+	  @each $breakpoint, $date-name-size in $date-name-sizes {
+        @include media-breakpoint-up($breakpoint, $grid-breakpoints) {
+          font-size: $date-name-size;
+        }
+      }
+    
+	  white-space: nowrap;
+	  word-break: keep-all;
+	  
+	  span {
+		  background-color: #7469B6;
+		  padding: 0.5rem 1rem;
+		  border-radius: 1rem;
+	  }
+	  
+	  img.emoji {
+		  margin-left: 1rem !important;
+	  }
+  }
+  
+  .activity {
+	  padding: 1rem !important;
+  }
+  
+  .artist-wrapper {
+	  @media(max-width: 768px){
+		width: 100%;
+		text-align: center;
+	}
+  }
+
+  .artist, .activity {
+    display: inline-block;
+    color: var(--artist-color, #fff);
+    text-align: center;
+
+    border-bottom: none;
+    text-decoration: none;
+    
+    &[href]:hover > * {
+	    text-decoration: underline;
     }
     
-	background-image: url(../../img/2025/artists-background.svg);
-	background-repeat: no-repeat;
-	background-size: cover;
-	background-position: center top;
-	z-index: -1;
+    a {
+	    color: var(--artist-color, #fff);
+	    text-decoration: none;
+	    
+	    &[href]:hover {
+		    text-decoration: underline;
+	    }
+    }
+      
+    & > * {
+	    display: block;
+	    
+	    @each $breakpoint, $artist-display in $artist-displays {
+		    @include media-breakpoint-up($breakpoint, $grid-breakpoints) {
+			    display: $artist-display;
+			}
+		}
+    }
+      
+    & > small {
+	    font-size: 0.75em;
+	    white-space: nowrap;
+	    word-break: keep-all;
+	    
+		color: #fff;
+	    
+	    display: block;
+	    
+	    span {
+		    background-color: var(--artist-color, #fff);
+			padding: 0.25rem 0.5rem;
+			border-radius: 1rem;
+			
+			display: inline-block;
+	    }
+	}
+  }
 }
+
 
 .map-link, .map-link:hover {
 	text-decoration: none !important;
@@ -705,18 +967,74 @@ $press-h3-sizes: (
 	}
 }
 
-.support {
-	background-color: #E1AFD1;
+.programm, .festival-info, .helfer, .support, .press {
 	color: #fff;
+	padding-bottom: 2rem;
+	
+	a {
+		color: #fff;
+		display: inline-block;
+	}
+	
+	.table p {
+		margin-bottom: 0;
+	}
+	
+	.container {
+		margin-left: auto;
+		margin-right: auto;
+	}
+}
+
+
+.programm {
+	background-color: #E1AFD1;
+	
+	.support-program {
+		line-height: 1.5;
+		
+		.punkt {
+			background-color: var(--farbe, #f9daac);
+			padding: 0.5rem;
+			display: inline-block;
+			border-radius: 100%;
+			
+			margin: 0 0.5rem;
+		}
+	}
+	
+	h3.program-date span {
+		background-color: var(--date-color, #f9daac);
+		padding: 0.5rem 1rem;
+		border-radius: 1rem;
+		
+		display: inline-block;
+	}
+}
+
+.festival-info {
+	background-color: #FF8A8A;
+}
+
+.helfer {
+	background-color: #FFE6A9;
+	color: #000;
+	
+	h1, h2, h3, h4, h5, h6, a, strong, b {
+		color: #000;
+	}
+}
+
+.support {
+	background-color: #7469B6;
 }
 
 .press {
 	background-color: #FF8A8A;
-	color: #fff;
 	
 }
 
-.sponsors {
+.sponsoring {
 	background-color: #BBE9FF;
 }
 
